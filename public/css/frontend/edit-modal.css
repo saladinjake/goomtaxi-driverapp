@@ -1,0 +1,229 @@
+
+ @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700);
+ body {
+	/* background-color: #39163b;
+	 margin: 0;
+	 font-family: 'Raleway', sans-serif;
+	 font-weight: 400;
+	 font-size: 16px;
+	 color: #fff;*/
+}
+ #container-x {
+
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-direction: column;
+	 width: 100%;
+	 height: 100vh;
+	 position:absolute;
+	 top:10px;
+	 left:200px;
+	 margin:10px auto;
+	 opacity:0;
+}
+ .about .slogan {
+	 font-size: 30px;
+	 margin-bottom: 20px;
+	 text-align: center;
+}
+ .about h1 {
+	 font-size: 14px;
+	 text-align: center;
+	 font-weight: 700;
+}
+ .about .description {
+	 text-align: center;
+	 font-size: 13px;
+	 margin: 0;
+}
+ .about .owner {
+	 margin-top: 15px;
+	 text-align: center;
+	 font-size: 10px;
+}
+ .about .owner a {
+	 color: #3498db;
+	 text-decoration: none;
+}
+ .form {
+	 width: 360px;
+	 height: 630px;
+	 background-color: #f3f3f3;
+	 border-radius: 4px;
+	 margin-top: 10vh;
+}
+ .form .form-header {
+	 width: 100%;
+	 height: 70px;
+	 border-top-left-radius: 4px;
+	 border-top-right-radius: 4px;
+	 position: relative;
+	 background: #7266ba;
+	
+}
+ .form .form-header .name {
+	 font-size: 17px;
+	 font-weight: 300;
+	 float: left;
+	 margin-top: 25px;
+	 margin-left: 15px;
+}
+ .form .form-header .close-icon {
+	 font-size: 20px;
+	 position: absolute;
+	 top: 25px;
+	 right: 15px;
+}
+ .form .form-header .close-icon:hover {
+	 cursor: pointer;
+}
+ .form .content {
+	 width: 100%;
+	 height: 450px;
+}
+ .form .content input {
+	 display: flex;
+	 justify-content: center;
+	 margin-left: 20px;
+	 width: 298px;
+	 height: 50px;
+	 border-radius: 4px;
+	 border: 1px solid #b3b3b3;
+	 background-color: #ecf0f1;
+	 color: #2c3e50;
+	 outline: 0;
+}
+ .form .content input:nth-child(1) {
+	 margin-top: 35px;
+}
+ .form .content input:nth-child(2) {
+	 margin-top: 20px;
+}
+ .form .content input[placeholder] {
+	 padding-left: 15px;
+	 font-family: 'Raleway', sans-serif;
+	 font-size: 13px;
+	 font-weight: 300;
+	 color: #2c3e50;
+}
+ .form .content input[placeholder]::-webkit-input-placeholder {
+	 color: #2c3e50;
+}
+ .form .content input[placeholder]:-moz-placeholder {
+	 color: #2c3e50;
+}
+ .form .content input[placeholder]::-moz-placeholder {
+	 color: #2c3e50;
+}
+ .form .content input[placeholder]:-ms-input-placeholder {
+	 color: #2c3e50;
+}
+ .form .signin {
+	 width: 100%;
+	 height: 100px;
+}
+ .form .signin .btnSignIn {
+	 width: 100px;
+	 height: 40px;
+	 border-radius: 4px;
+	 background-color: #734d76;
+	 margin-left: 20px;
+	 float: left;
+	 border: 1px solid #734d76;
+	 transition: all 0.5s ease-in-out;
+}
+ .form .signin .btnSignIn:hover {
+	 cursor: pointer;
+	 background-color: #fff;
+	 color: #39163b;
+	 border-color: #734d76;
+}
+ .form .signin .btnSignIn h1 {
+	 font-size: 13px;
+	 text-align: center;
+	 padding-top: 5px;
+
+}
+ .form .signin .lost {
+	 font-size: 12px;
+	 font-weight: 600;
+	 color: #2c3e50;
+	 float: left;
+	 padding-top: 14px;
+	 padding-left: 26px;
+}
+ .form .signin .lost:hover {
+	 cursor: pointer;
+}
+ .info {
+	 display: none;
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+	 bottom: 0;
+	 left: 0;
+	 margin: auto;
+	 width: 400px;
+	 height: 180px;
+	 background-color: #FFF;
+	 border-top-left-radius: 4px;
+	 border-top-right-radius: 4px;
+	 box-shadow: 1px 1px 2px #000;
+}
+ .info .infoHeader {
+	 width: 100%;
+	 height: 40px;
+	 border-top-left-radius: 3px;
+	 border-top-right-radius: 3px;
+	 background: -webkit-linear-gradient(#78517B,#552E55);
+	 background: -o-linear-gradient(#78517B,#552E55);
+	 background: -moz-linear-gradient(#78517B,#552E55);
+	 background: linear-gradient(#78517B,#552E55);
+}
+ .info .infoHeader h1 {
+	 font-family: Arial;
+	 font-size: 14px;
+	 font-weight: 600;
+	 color: #FFF;
+	 float: left;
+	 margin-top: 14px;
+	 margin-left: 20px;
+	 text-shadow: 0px 1px 1px #000;
+}
+ .info .infoContent {
+	 width: 100%;
+	 height: 50px;
+}
+ .info .infoContent p {
+	 font-family: Arial;
+	 font-size: 16px;
+	 font-weight: bold;
+	 text-align: center;
+	 margin-top: 30px;
+	 color: #4d4d4d;
+}
+ .info .closeSection {
+	 width: 100%;
+	 height: 40px;
+}
+ .info .closeSection .btnClose {
+	 width: 100px;
+	 height: 40px;
+	 border-radius: 3px;
+	 background-color: #734d76;
+	 margin: 0 auto;
+}
+ .info .closeSection .btnClose:hover {
+	 cursor: pointer;
+}
+ .info .closeSection .btnClose h1 {
+	 font-family: Arial;
+	 font-size: 13px;
+	 font-weight: 600;
+	 text-align: center;
+	 color: #FFF;
+	 padding-top: 12px;
+	 text-shadow: 0px 1px 1px #000;
+}
+ 

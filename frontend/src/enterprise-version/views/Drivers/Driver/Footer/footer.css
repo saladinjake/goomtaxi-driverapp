@@ -1,0 +1,31 @@
+
+  .footer-container{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+   background-color: #efefef;
+  color: #fff;
+  text-align: center;
+  height: 38px;
+  padding-top: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+ 
+  text-align: center;
+  z-index:9999999;
+  
+  }
+
+
+  .footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+   margin: 0px auto;
+
+}

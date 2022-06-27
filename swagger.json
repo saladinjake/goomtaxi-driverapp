@@ -1,0 +1,774 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "GOOM Logistics is a logistic / haulage application to handle and manage deliveries from cab booking to frieghts down to the minimalistic form of every day cargo shipping",
+    "version": "1.0.0",
+    "title": "iReporter",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "juwavictor@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "goom-logistics-app.herokuapp.com",
+  "basePath": "/api/v1",
+  "tags": [{
+      "name": "User",
+      "description": "Creating an account as a user"
+    },
+    {
+      "name": "Red-flags",
+      "description": "An incident linked to customer related support service"
+    },
+    {
+      "name": "Interventions",
+      "description": "Agency to intervene to the car break down or any sos response"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create new user account",
+        "description": "Registers a user into the application",
+        "operationId": "createUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "signup",
+          "description": "Returns users object after successful registration",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/signup"
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "User created successfully",
+            "schema": {
+              "$ref": "#/definitions/token"
+            }
+          },
+          "409": {
+            "description": "Email already exists"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Logs in a user",
+        "description": "",
+        "operationId": "loginUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "email",
+          "description": "The email for login",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/login"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "Successfully signed in",
+            "schema": {
+              "$ref": "#/definitions/token"
+            }
+          },
+          "409": {
+            "description": "Invalid login details. Email or password is wrong"
+          }
+        }
+      }
+    },
+    "/red-flags": {
+      "post": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Create a red-flag record",
+        "description": "User can create a red-flag record",
+        "operationId": "createRedFlag",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "red-flags",
+          "description": "Returns a user red-flag record",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/red-flags"
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "Created red-flag record",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/red-flags"
+              }
+            }
+          },
+          "401": {
+            "description": "You must signup or login to access this route"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      },
+      "get": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Get list of red-flag records",
+        "description": "",
+        "operationId": "getAllRedflag",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "All red-flags was retrieved successfully",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/redFlagResponse"
+              }
+            }
+          },
+          "401": {
+            "description": "You must signup or login to access this route"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+    },
+    "/red-flags/{redFlagId}": {
+      "get": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Get a specific red-flag",
+        "description": "",
+        "operationId": "getById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Id of a red-flag",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Get a specific red-flag was successful",
+            "schema": {
+              "$ref": "#/definitions/red-flags"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/red-flags/{redFlagId}location": {
+      "patch": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Update a specific red-flag location",
+        "description": "",
+        "operationId": "getByLocationId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Location id of a red-flag",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Updated red-flag record’s location",
+            "schema": {
+              "$ref": "#/definitions/red-flags"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/red-flags/{redFlagId}comment": {
+      "patch": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Update a specific red-flag comment",
+        "description": "",
+        "operationId": "getByCommentId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Comment id of a red-flag",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Updated red-flag record’s comment",
+            "schema": {
+              "$ref": "#/definitions/red-flags"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/red-flags/{red-FlagId}": {
+      "delete": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Delete a specific red-flag",
+        "description": "",
+        "operationId": "deleteById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Delete a red-flag id",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "red-flag record has been deleted",
+            "schema": {
+              "$ref": "#/definitions/red-flags"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/red-flags/{redFlagId}status": {
+      "patch": {
+        "tags": [
+          "Red-flags"
+        ],
+        "summary": "Update a specific red-flag status",
+        "description": "",
+        "operationId": "getStatusId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Status id of a red-flag",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Updated red-flag record’s status",
+            "schema": {
+              "$ref": "#/definitions/red-flags"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/interventions": {
+      "post": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Create an intervention record",
+        "description": "User can create an intervention record",
+        "operationId": "createIntervention",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "red-flags",
+          "description": "Returns a user intervention record",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/red-flags"
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "Created intervention record",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/red-flags"
+              }
+            }
+          },
+          "401": {
+            "description": "You must signup or login to access this route"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      },
+      "get": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Get list of intervention records",
+        "description": "",
+        "operationId": "getAllIntervention",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "All interventions was retrieved successfully",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/interventionResponse"
+              }
+            }
+          },
+          "401": {
+            "description": "You must signup or login to access this route"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+    },
+    "/interventions/{interventionId}": {
+      "get": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Get a specific intervention",
+        "description": "",
+        "operationId": "getById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Id of an intervention",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Get a specific intervention was successful",
+            "schema": {
+              "$ref": "#/definitions/red-flags"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/interventions/{interventionId}location": {
+      "patch": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Update a specific intervention location",
+        "description": "",
+        "operationId": "getByLocationId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Location id of an intervention",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Updated intervention record’s location",
+            "schema": {
+              "$ref": "#/definitions/interventions"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/interventions/{interventionId}comment": {
+      "patch": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Update a specific intervention comment",
+        "description": "",
+        "operationId": "getByCommentId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "interventionId",
+          "in": "path",
+          "description": "Comment id of an intervention",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Updated intervention record’s comment",
+            "schema": {
+              "$ref": "#/definitions/interventions"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/interventions/{interventionID}": {
+      "delete": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Delete a specific intervention",
+        "description": "",
+        "operationId": "deleteById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "interventionId",
+          "in": "path",
+          "description": "Delete an intervention id",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "intervention record has been deleted",
+            "schema": {
+              "$ref": "#/definitions/interventions"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    },
+    "/interventions/{interventionId}status": {
+      "patch": {
+        "tags": [
+          "Interventions"
+        ],
+        "summary": "Update a specific intervention status",
+        "description": "",
+        "operationId": "getStatusId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "redFlagId",
+          "in": "path",
+          "description": "Status id of an intervention",
+          "required": true,
+          "type": "integer"
+        }],
+        "responses": {
+          "200": {
+            "description": "Updated intervention record’s status",
+            "schema": {
+              "$ref": "#/definitions/interventions"
+            }
+          },
+          "422": {
+            "description": "The given id is not a number"
+          }
+        },
+        "security": [{
+          "JWT": []
+        }]
+      }
+
+    }
+
+
+  },
+  "securityDefinitions": {
+    "JWT": {
+      "description": "Protected endpoints require a token",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Red-flag": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array"
+        },
+        "videos": {
+          "type": "array",
+          "format": "int64"
+        },
+        "comment": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "redFlagResponse": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "images": {
+        "type": "string"
+      },
+      "videos": {
+        "type": "string"
+      },
+      "comment": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    }
+  },
+
+
+  "signup": {
+    "type": "object",
+    "properties": {
+      "firstname": {
+        "type": "string"
+      },
+      "lastname": {
+        "type": "string"
+      },
+      "othernames": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "phoneNumber": {
+        "type": "integer"
+      },
+      "password": {
+        "type": "string"
+      }
+    }
+  },
+  "login": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      }
+    }
+  },
+  "interventions": {
+    "type": "object",
+    "properties": {
+      "location": {
+        "type": "string"
+      },
+      "images": {
+        "type": "string"
+      },
+      "videos": {
+        "type": "string"
+      },
+      "comment": {
+        "type": "string"
+      }
+    }
+  },
+  "interventionResponse": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "images": {
+        "type": "string"
+      },
+      "videos": {
+        "type": "string"
+      },
+      "comment": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "createdAt": {
+        "type": "string"
+      },
+      "updatedAt": {
+        "type": "string"
+      }
+    }
+  },
+  "token": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string"
+      },
+      "token": {
+        "type": "string"
+      }
+    }
+  },
+  "User": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "firstname": {
+        "type": "string"
+      },
+      "lastname": {
+        "type": "string"
+      },
+      "othernames": {
+        "type": "string"
+      },
+      "username": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "phone": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "env": {
+    "DEPLOY_FRONT_URL": "http://localhost:4000",
+    "DEPLOY_BACK_URL": "http://localhost:12000"
+  }
+}

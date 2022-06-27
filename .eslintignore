@@ -1,0 +1,8 @@
+/**/dist
+/node_modules/**
+/.env/**
+/UI/js/vendors/**
+/react-with-me/core/static/vanillajs/js/vendors/**
+.eslintrc.json
+package.json
+package-lock.json

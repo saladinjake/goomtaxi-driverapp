@@ -1,0 +1,112 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import ItineraryHistoryList from '../History/ItineraryHistoryList'
+
+const activeUrl ="http://localhost:12000/api/v1";
+
+
+export  default class SubmittedTicket extends Component {
+  
+  
+
+  componentDidMount() {
+     let mainNav;
+     if (document.getElementById("loggedInOnly") ) {
+            mainNav = document.getElementById("loggedInOnly");
+            mainNav.style.display="block";
+            mainNav.style.opacity=1;
+
+    }
+
+   
+
+  }
+
+  render() {
+    const style1 ={
+        visibility:"hidden", 
+        display:"none"
+    }
+   
+    return (
+      
+
+      <div className="content-page page-wrap" id="spread-out">
+                
+                <div className="content" id="view-tickets">
+                    <div className="container">
+
+                       
+
+                   
+                        
+                         <div className="row">
+
+                            
+
+
+                            <div className="col-lg-12">
+                                <div className="card-box">
+                                     <a id="itinerary-history" style={{width:"80px", fontSize:"12px", marginRight: "12px", fontSize: "14px"}} href="./create-ticket" className="pull-right btn btn-primary waves-effect waves-light w-md cd-add-to-cart js-cd-add-to-cart">New Ticket</a>
+                                    <h4 className="text-dark header-title m-t-0">Submitted Tickets</h4>
+                                    <p className="text-muted m-b-30 font-13">
+                                        
+                                    </p>
+
+                                    <div className="table-responsive">
+                                        <table className="table table-actions-bar">
+                                            <thead>
+                                                <tr>
+                                                    <th>User ID</th>
+                                                    <th>Location</th>
+                                                    <th>Car Brand</th>
+                                                    <th>Request Date</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="fetched-data-repair">
+                                                
+
+                                                
+                                              
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                           
+
+                        </div>
+                      
+
+
+
+                       
+
+
+                    </div> 
+
+                </div>
+
+
+            </div>
+
+
+           
+            
+            
+            
+            
+    );
+  }
+
+}
+
+
+
+
+
+

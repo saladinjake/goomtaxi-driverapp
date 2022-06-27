@@ -1,0 +1,110 @@
+.item-body{
+	margin: 2em auto;
+	max-width: 40em;
+	width: 100%;
+	font: 90% Arial, sans-serif;
+}
+
+#items-content {
+	margin: 1em auto;
+	max-width: 1250px;
+	overflow: hidden; /* hide the menu */
+	position: relative;
+}
+#actions {
+	height: 2em;
+}
+#actions a {
+	float: right;
+	height: 2em;
+	line-height: 2;
+	padding: 0 1em;
+	color: #fff;
+	text-decoration: none;
+	background: #000;
+}
+
+#categories {
+	position: absolute;
+	top: 2em;
+	right: -31%;
+	z-index: 100;
+	width: 31%;
+	background: #000;
+	transition: right 500ms ease-in;
+}
+
+#categories.visible {
+	right: 0;
+}
+
+#categories ul {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+#categories li {
+	display: block;
+	margin: 0.5em auto;
+	padding-bottom: 0.2em;
+	border-bottom: 1px solid #555;
+	width: 90%;
+
+}
+
+#categories a {
+	display: block;
+	padding: 0 1em;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+#products {
+	margin: 1.5em 0;
+	transition: all 500ms ease-in;
+}
+
+#products.resize {
+	padding-right: 32%;
+}
+
+#products.resize ul li {
+	width: 48%;
+}
+
+#products ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+#products li {
+	float: left;
+	width: 350px;
+	display: block;
+	margin: 0 1% 1em 1%;
+	transition: all 500ms ease-in;
+}
+
+#products figure {
+	margin: 0;
+	width: 100%;
+	/*height:350px;
+	width:350px;padding:12px;background-color: #fff;box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+*/}
+
+#products figure img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+#products li figcaption {
+	margin: 0;
+	padding: 0.3em;
+	background: #000;
+	color: #fff;
+	text-align: center;
+}

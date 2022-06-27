@@ -1,0 +1,28 @@
+.animated {
+   background-image: url("./../../images/logo.jpg");
+   background-repeat: no-repeat;
+   background-position: left top;
+   padding-top:2px;
+   margin-bottom:5px;
+   -webkit-animation-duration: 10s;
+   animation-duration: 10s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+   width:30px;
+   height:20px;
+}
+
+@-webkit-keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+
+.fadeIn {
+   -webkit-animation-name: fadeIn;
+   animation-name: fadeIn;
+}

@@ -1,0 +1,72 @@
+:root {
+  --background: #000;
+  
+  --eye-back: #e8e8e8;
+  --eye-iris: gold;
+  --eye-pupil: #202020;
+}
+
+
+
+.Content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.Content-item {
+  margin-bottom: 5vh;
+}
+
+#eye-back {
+  fill: var(--eye-back);
+}
+
+#eye-iris {
+  fill: var(--eye-iris);
+  animation: eyemove 5s ease infinite;
+}
+
+#eye-pupil {
+  fill: var(--eye-pupil);
+  animation: eyemove 5s ease infinite;
+}
+
+.Content-item {
+  text-align: center;
+}
+
+.title {
+  font-size: calc(16px + 2vmin);
+  font-weight: 700;
+}
+
+.desc {
+  font-size: calc(12px + 0.8vmin);
+}
+
+@keyframes eyemove {
+  0% {
+    cx: 100px;
+  }
+  17.5% {
+    cx: 50px;
+  }
+  27.5% {
+    cx: 50px;
+  }
+  62.5% {
+    cx: 150px;
+  }
+  72.5% {
+    cx: 150px;
+  }
+  90% {
+    cx: 100px;
+  }
+  100% {
+    cx: 100px;
+  }
+}

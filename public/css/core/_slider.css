@@ -1,0 +1,50 @@
+* {
+  font-family: Arial;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review {
+  display: none;
+  text-align: center;
+}
+
+.show {
+  display: block;
+}
+
+.arrow {
+  border: 10px solid transparent;
+  width: 0;
+  height: 0;
+  margin: 0 25vw;
+}
+
+#arrow-left {
+  border-right: 10px solid black;
+}
+
+#arrow-right {
+  border-left: 10px solid black;
+}
+
+
+.description {
+  color:#fff;
+  display: inline-block;
+position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.75em 1.5em;
+  font-size: 1.3em;
+background: #000000; /* fallback for old browsers */
+  background: rgba(0, 0, 0, 0.8);
+}
+
+img{
+
+}
