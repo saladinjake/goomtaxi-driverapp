@@ -42,7 +42,7 @@ window.updateDriveTest = function(o){
 
 
 let view_id = o.dataset.id
-let linkOfApi = "https://goomtaxibackendapi/api/v1" + o.dataset.url + '/' + o.dataset.id
+let linkOfApi = "https://goomtaxibackendapi.herokuapp.com/api/v1" + o.dataset.url + '/' + o.dataset.id
 
 
 const  status_x = document.getElementById("status"+view_id)
