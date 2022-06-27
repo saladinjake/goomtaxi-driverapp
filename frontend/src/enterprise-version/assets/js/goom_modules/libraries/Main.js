@@ -7,7 +7,10 @@ import FrontEndApp from './App';
 import BackendApp from './backend/App';
 
 
+// turned off from stand alone and then imported in the react App.js
 
+// this project was initially a js es6 code base , 
+//partly transformed to react with vanilla js under the hood
 
 // const loadingAction = () => {
 //   document.onreadystatechange = function() { 

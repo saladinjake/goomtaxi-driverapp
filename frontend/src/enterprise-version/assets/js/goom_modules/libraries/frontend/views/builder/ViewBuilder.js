@@ -387,7 +387,7 @@ class ViewBuilder {
       let imgData = img.replace(/{/, '').replace(/}/, '');
       console.log(imgData + ' stripping');
       if (imgData.charAt(0) === '"' && imgData.charAt(imgData.length - 1)) {
-        imgData = `http://localhost:4000/UI/images/${imgData.substr(1, imgData.length - 2)}`;
+        imgData = `https://goomtaxiuser.herokuapp.com/UI/images/${imgData.substr(1, imgData.length - 2)}`;
       }
       console.log('string data:' + imgData);
       console.log('this is the uploaded data ' + imgData);

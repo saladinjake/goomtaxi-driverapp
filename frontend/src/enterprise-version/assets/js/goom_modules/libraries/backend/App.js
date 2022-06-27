@@ -1,7 +1,7 @@
 'use strict';
 // import '../../../public/css/mainstyles_backend.css';
 import backendControllers from './Bootstrap';
-const DEPLOY_BACK_URLS = "http://localhost:12000/api/v1"
+const DEPLOY_BACK_URLS = "https://goomtaxibackendapi/api/v1"
 
 
 const frontend = false;

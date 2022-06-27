@@ -50,7 +50,7 @@ class WebsiteSignUp {
 
     document.getElementById("goosign").addEventListener("click",(e)=>{
       e.preventDefault()
-      let goosignUpUrl = "https://demouserapp.Goom Logistics.ng:12000/api/v1" + '/request/gmail/auth'
+      let goosignUpUrl = "https://goomtaxibackendapi/api/v1" + '/request/gmail/auth'
 
       fetch(goosignUpUrl, {
         method: 'GET',

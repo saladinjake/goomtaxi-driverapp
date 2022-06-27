@@ -2,6 +2,6 @@
 * Bootstrap Engine 
 *
 **/
-require('./Goom Logistics-core/Main');
+require('./libraries/Main');
 
  

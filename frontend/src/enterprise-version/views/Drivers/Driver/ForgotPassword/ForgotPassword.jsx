@@ -83,7 +83,7 @@ export class ForgotPassword extends Component {
                </div>
 
         <div className="panel-body">
-          <form method="post" id="e-form" action="http://localhost:12000/api/v1/auth/forgot_password" role="form" className="text-center">
+          <form method="post" id="e-form" action="https://goomtaxibackendapi.herokuapp.com/api/v1/auth/forgot_password" role="form" className="text-center">
             <div className="alert alert-info alert-dismissable">
               <button type="button" className="close" data-dismiss="alert" aria-hidden="true">
                 ×

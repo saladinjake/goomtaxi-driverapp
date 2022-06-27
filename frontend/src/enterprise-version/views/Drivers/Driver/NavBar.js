@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import '../Terra.css'
 
 const NavBar = props => {
   const user = JSON.parse(sessionStorage.getItem('user'))

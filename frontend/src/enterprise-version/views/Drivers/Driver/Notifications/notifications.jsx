@@ -16,7 +16,7 @@ class NotificationsContent extends Component {
           <h4 className="page-title" />
           <ol className="breadcrumb">
             <li>
-              <a href="#">Ubold</a>
+              <a href="#">App</a>
             </li>
             <li>
               <a href="#">UI Kit</a>

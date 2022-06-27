@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const activeUrl ="http://localhost:12000/api/v1";
+const activeUrl ="https://goomtaxibackendapi.herokuapp.com/api/v1";
 
 
 export  default class FAQ extends Component {

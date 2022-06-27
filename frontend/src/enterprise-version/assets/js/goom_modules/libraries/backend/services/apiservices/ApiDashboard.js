@@ -15,7 +15,7 @@ let detinationMarker;
 let startMarker;
 
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:12000";
+const ENDPOINT = "https://goomtaxibackendapi";
 
 var element ;
 var myStorage = localStorage;

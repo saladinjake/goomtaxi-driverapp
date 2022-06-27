@@ -45,7 +45,7 @@ export class Home extends Component {
                                   
                                 </div>
 
-                                <form className="form-horizontal m-t-20" method="POST" action="http://localhost:12000/api/v1/auth/drivers-login">
+                                <form className="form-horizontal m-t-20" method="POST" action="https://goomtaxibackendapi.herokuapp.com/api/v1/auth/drivers-login">
 
                                   
                                   <div className="form-group ">
@@ -88,15 +88,15 @@ export class Home extends Component {
                                   <div className="form-group m-b-0 text-center">
                                     <div className="col-sm-12">
 
-                                      <a style={{width:"60px",marginRight:"5px", height:"40px"}}  href="http://localhost:12000/api/v1/auth/google" className=""><img style={{width:"40px",height:"40px"}} src="public/assets/images/google.png"  />
+                                      <a style={{width:"60px",marginRight:"5px", height:"40px"}}  href="https://goomtaxibackendapi.herokuapp.com/api/v1/auth/google" className=""><img style={{width:"40px",height:"40px"}} src="public/assets/images/google.png"  />
                                                 
                                                   </a>
 
-                                                   <a style={{width:"60px",marginRight:"5px", height:"40px"}} href="http://localhost:12000/api/v1/auth/instagram" className="">
+                                                   <a style={{width:"60px",marginRight:"5px", height:"40px"}} href="https://goomtaxibackendapi.herokuapp.com/api/v1/auth/instagram" className="">
                                                     <img style={{width:"30px",height:"30px"}} src="public/assets/images/instagram.png"  />
                                                   </a>
 
-                                                  <a style={{width:"60px",marginRight:"5px", height:"40px"}}   href="http://localhost:12000/api/v1/auth/facebook" className="">
+                                                  <a style={{width:"60px",marginRight:"5px", height:"40px"}}   href="https://goomtaxibackendapi.herokuapp.com/api/v1/auth/facebook" className="">
                                                     <img style={{width:"25px",height:"25px"}} src="public/assets/images/facebook2.png"  />
                                                   </a>
                                     </div>

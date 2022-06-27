@@ -6,7 +6,7 @@ import getApiUrl from '../../backend/services/apiservices/helpers/getOnlineUrlCo
 let baseUrl =  getApiUrl();
 
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:12000";
+const ENDPOINT = "https://goomtaxibackendapi";
 
 window.viewRecordDriverUserItinsDetail =(el) =>{
     

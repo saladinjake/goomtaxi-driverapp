@@ -34,7 +34,7 @@ alertify.set('notifier','position', 'bottom-right');
 
 
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://localhost:12000";
+const ENDPOINT = "https://goomtaxibackendapi";
 
 export default class AdminBash{
   static runEndpoints(){
@@ -485,7 +485,7 @@ let markers = new Map()
 
    let  socket = socketIOClient(
       // ENDPOINT,
-     "http://localhost:12000",
+     "https://goomtaxibackendapi",
 
       // {secure: true}
         {

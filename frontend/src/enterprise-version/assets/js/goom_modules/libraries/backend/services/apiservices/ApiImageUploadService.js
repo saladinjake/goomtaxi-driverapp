@@ -57,7 +57,7 @@ class ApiImageUploadService {
     reader.onloadend = function() {
       let img = document.createElement('img');
       img.src = reader.result;
-      let imgLink = 'http://localhost:4001/UI/user/assets/images/';
+      let imgLink = 'https://goomtaxiuser.herokuapp.com/public/images/';
       //img.setAttribute("class", "image-uploads")
       // img.width="200px"
       // img.height="200px"

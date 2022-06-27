@@ -229,7 +229,7 @@ window.update_value_checked_previledges= (chk_bx) =>{
 
 window.updateInspectionAction = (o) =>{
         let view_id = o.dataset.id
-        let linkOfApi = "https://demouserapp.Goom Logistics.ng:12000/api/v1" + o.dataset.url + '/' + o.dataset.id
+        let linkOfApi = "https://goomtaxibackendapi/api/v1" + o.dataset.url + '/' + o.dataset.id
 
         
       const  status_x = document.getElementById("health_status"+view_id)
@@ -997,7 +997,7 @@ window.viewPreviledges = (el) =>{
 
 
         const user =JSON.parse(localStorage.getItem("userToken"));
-        let linkOfApi = 'https://demouserapp.Goom Logistics.ng:12000/api/v1/admin-previledges-update/'+ el.dataset.id  ;
+        let linkOfApi = 'https://goomtaxibackendapi/api/v1/admin-previledges-update/'+ el.dataset.id  ;
 
 
         let status_x = document.getElementById('status'+ el.dataset.id);
@@ -1379,7 +1379,7 @@ window.RolesAddAction = (t) =>{
   let view_id = t.dataset.id;
 
    
- let linkOfApi ='https://demouserapp.Goom Logistics.ng:12000/api/v1/' + t.dataset.url ;
+ let linkOfApi ='https://goomtaxibackendapi/api/v1/' + t.dataset.url ;
 
  let usergroups_old =document.getElementById("role"+view_id).dataset.usergroups_old
  usergroups_old = usergroups_old.split(',')
@@ -1460,7 +1460,7 @@ window.RolesUpdateAction =(t) =>{
   let view_id = t.dataset.id;
 
 
- let linkOfApi ='https://demouserapp.Goom Logistics.ng:12000/api/v1/' + t.dataset.url + '/' + t.dataset.id
+ let linkOfApi ='https://goomtaxibackendapi/api/v1/' + t.dataset.url + '/' + t.dataset.id
 
 
   let previledges_info =document.getElementById("role"+view_id).value

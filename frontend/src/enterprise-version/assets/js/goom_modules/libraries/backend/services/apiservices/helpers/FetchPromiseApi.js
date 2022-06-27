@@ -22,7 +22,7 @@ const FetchPromiseApi = (Apilink, ExecutionMethod, BodyToSend, token) => {
       body: JSON.stringify(BodyToSend),
     }).then(response => response.json());
   } else {
-    // sign in or sign up case when user hasn't existed
+    // sign in or sign up case when user hasn't existed with token
     return fetch(Apilink, {
       method: ExecutionMethod,
       headers: {
