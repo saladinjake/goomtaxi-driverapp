@@ -42,10 +42,6 @@ const DriverRouter = props => {
     return user ? user : false;
   };
 
-  const isAdmin = () => {
-    const user = sessionStorage.getItem('user');
-    return user && JSON.parse(user).roles === 'admin' ? user : false;
-  };
   return (
     <>
       <BrowserRouter>
@@ -53,24 +49,24 @@ const DriverRouter = props => {
           {/* drivers routes completed ...*/}
 
           <Route path="/" exact component={HomeLoginDriver} />
-          <Route path="/drivers-login" component={HomeLoginDriver} />
-          <Route path="/dashboard-driver" component={DashboardDriver} />
-          <Route path="/drivers-signup" component={RegisterDriver} />
-          <Route path="/recovery-driver" component={ForgotPasswordDriver} />
-          <Route path="/drivers-profile" component={ProfileDriver} />
+          <Route path="/login" component={HomeLoginDriver} />
+          <Route path="/dashboard" component={DashboardDriver} />
+          <Route path="/signup" component={RegisterDriver} />
+          <Route path="/recovery" component={ForgotPasswordDriver} />
+          <Route path="/profile" component={ProfileDriver} />
           <Route path="/drivers-ratings" component={Ratings} />
-          <Route path="/drivers-sos-request" component={SOSRequestDriver} />
-          <Route path="/drivers-sos-history" component={SubmittedSOSDriver} />
-          <Route path="/drivers-request-car-repair" component={MechanicRequestDriver} />
-          <Route path="/drivers-request-repairs-history" component={MechanicRequestDriverHistory} />
-          <Route path="/drivers-createticket" component={TicketRequestDriver} />
-          <Route path="/drivers-submittedticket" component={TicketHistoryDriver} />
-          <Route path="/drivers-faqs" component={FAQHistoryDriver} />
-          <Route path="/drivers-notifications" component={NotificationsDriver} />
-          <Route path="/drivers-assignedvehiclehistory" component={AssignedVehicleHistory} />
-          <Route path="/drivers-completedtrips" component={CompletedTripsContent} />
-          <Route path="/drivers-upcomingtrips" component={UpcomingTripsContent} />
-          <Route path="/drivers-tripdetail" component={TripDetailContent} />
+          <Route path="/sos-request" component={SOSRequestDriver} />
+          <Route path="/sos-history" component={SubmittedSOSDriver} />
+          <Route path="/request-car-repair" component={MechanicRequestDriver} />
+          <Route path="/request-repairs-history" component={MechanicRequestDriverHistory} />
+          <Route path="/createticket" component={TicketRequestDriver} />
+          <Route path="/submittedticket" component={TicketHistoryDriver} />
+          <Route path="/faqs" component={FAQHistoryDriver} />
+          <Route path="/notifications" component={NotificationsDriver} />
+          <Route path="/assignedvehiclehistory" component={AssignedVehicleHistory} />
+          <Route path="/completedtrips" component={CompletedTripsContent} />
+          <Route path="/upcomingtrips" component={UpcomingTripsContent} />
+          <Route path="/tripdetail" component={TripDetailContent} />
           <Route exact path="/previledges-denied" component={Forbidden} />
 
           {/*main activity*/}

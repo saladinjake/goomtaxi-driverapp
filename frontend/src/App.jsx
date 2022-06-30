@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './enterprise-version/views/Drivers/Driver/Header/Header';
 import Footer from './enterprise-version/views/Drivers/Driver/Footer/Footer';
 import FrontEndApp from './enterprise-version/assets/js/goom_modules/libraries/App';
-import BackendApp from './enterprise-version/assets/js/goom_modules/libraries/backend/App';
 import '../../public/css/mainstyles.css';
 import './App.css';
 import $ from 'jquery';
