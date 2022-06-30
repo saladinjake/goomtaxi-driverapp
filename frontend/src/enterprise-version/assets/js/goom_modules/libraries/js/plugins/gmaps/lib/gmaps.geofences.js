@@ -4,7 +4,7 @@ GMaps.prototype.checkGeofence = function(lat, lng, fence) {
 
 GMaps.prototype.checkMarkerGeofence = function(marker, outside_callback) {
   if (marker.fences) {
-    for (var i = 0, fence; fence = marker.fences[i]; i++) {
+    for (var i = 0, fence; (fence = marker.fences[i]); i++) {
       var pos = marker.getPosition();
       if (!this.checkGeofence(pos.lat(), pos.lng(), fence)) {
         outside_callback(marker, fence);

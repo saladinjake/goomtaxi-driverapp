@@ -1,13 +1,9 @@
 'use strict';
 
 class MoreAbstractedPrototypePattern {
-    constructor(prototype) {
-    }
+  constructor(prototype) {}
 
-    clonMe (){
-    }
+  clonMe() {}
 }
-
-
 
 export default MoreAbstractedPrototypePattern;

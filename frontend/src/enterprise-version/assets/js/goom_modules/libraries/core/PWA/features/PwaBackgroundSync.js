@@ -1,6 +1,6 @@
-class PwaBackgroundSync{
-	constructor(){}
-	attachEvents(){}
+class PwaBackgroundSync {
+  constructor() {}
+  attachEvents() {}
 }
 
 export default PwaBackgroundSync;

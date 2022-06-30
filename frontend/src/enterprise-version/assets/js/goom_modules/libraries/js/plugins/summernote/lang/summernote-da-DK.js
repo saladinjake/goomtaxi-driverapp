@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'da-DK': {
       font: {
@@ -11,7 +11,7 @@
         strikethrough: 'Gennemstreget',
         subscript: 'Sænket skrift',
         superscript: 'Hævet skrift',
-        size: 'Skriftstørrelse'
+        size: 'Skriftstørrelse',
       },
       image: {
         image: 'Billede',
@@ -32,14 +32,14 @@
         maximumFileSize: 'Maks fil størrelse',
         maximumFileSizeError: 'Filen er større end maks tilladte fil størrelse!',
         url: 'Billede URL',
-        remove: 'Fjern billede'
+        remove: 'Fjern billede',
       },
       video: {
         video: 'Video',
         videoLink: 'Video Link',
         insert: 'Indsæt Video',
         url: 'Video URL?',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion eller Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion eller Youku)',
       },
       link: {
         link: 'Link',
@@ -48,13 +48,13 @@
         edit: 'Rediger',
         textToDisplay: 'Visningstekst',
         url: 'Hvor skal linket pege hen?',
-        openInNewWindow: 'Åbn i nyt vindue'
+        openInNewWindow: 'Åbn i nyt vindue',
       },
       table: {
-        table: 'Tabel'
+        table: 'Tabel',
       },
       hr: {
-        insert: 'Indsæt horisontal linje'
+        insert: 'Indsæt horisontal linje',
       },
       style: {
         style: 'Stil',
@@ -66,16 +66,16 @@
         h3: 'Overskrift 3',
         h4: 'Overskrift 4',
         h5: 'Overskrift 5',
-        h6: 'Overskrift 6'
+        h6: 'Overskrift 6',
       },
       lists: {
         unordered: 'Punktopstillet liste',
-        ordered: 'Nummereret liste'
+        ordered: 'Nummereret liste',
       },
       options: {
         help: 'Hjælp',
         fullscreen: 'Fuld skærm',
-        codeview: 'HTML-Visning'
+        codeview: 'HTML-Visning',
       },
       paragraph: {
         paragraph: 'Afsnit',
@@ -84,7 +84,7 @@
         left: 'Venstrestillet',
         center: 'Centreret',
         right: 'Højrestillet',
-        justify: 'Blokjuster'
+        justify: 'Blokjuster',
       },
       color: {
         recent: 'Nyligt valgt farve',
@@ -94,7 +94,7 @@
         transparent: 'Transparent',
         setTransparent: 'Sæt transparent',
         reset: 'Nulstil',
-        resetToDefault: 'Gendan standardindstillinger'
+        resetToDefault: 'Gendan standardindstillinger',
       },
       shortcut: {
         shortcuts: 'Genveje',
@@ -102,13 +102,12 @@
         textFormatting: 'Tekstformatering',
         action: 'Handling',
         paragraphFormatting: 'Afsnitsformatering',
-        documentStyle: 'Dokumentstil'
+        documentStyle: 'Dokumentstil',
       },
       history: {
         undo: 'Fortryd',
-        redo: 'Annuller fortryd'
-      }
-
-    }
+        redo: 'Annuller fortryd',
+      },
+    },
   });
 })(jQuery);

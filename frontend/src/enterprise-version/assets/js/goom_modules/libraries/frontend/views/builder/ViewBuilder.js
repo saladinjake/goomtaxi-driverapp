@@ -7,27 +7,27 @@ class ViewBuilder {
 
   static paginated(dataToTiew, locId) {
     console.log(dataToTiew);
-    let paginatedData = new PaginatedView(dataToTiew,locId);
+    let paginatedData = new PaginatedView(dataToTiew, locId);
 
     let data = paginatedData.loadRecordData();
     console.log(data);
 
     paginatedData.attachEvents();
 
-    return ViewBuilder.buildRecordUI(data,locId);
+    return ViewBuilder.buildRecordUI(data, locId);
   }
   static buildRecordUI(dataToTiew, locId) {
     let that = this;
-     let rootTemplate = document.getElementById(locId);
-     let divTemplate = document.createElement('div');
+    let rootTemplate = document.getElementById(locId);
+    let divTemplate = document.createElement('div');
     if (document.getElementById(locId)) {
-      console.log("type of data is " + typeof dataToTiew)
-     
+      console.log('type of data is ' + typeof dataToTiew);
+
       let i;
       let templateString;
       console.log(dataToTiew);
       let recordData = dataToTiew;
-      
+
       divTemplate.id = 'products';
       let divUl = document.createElement('ul');
 
@@ -56,7 +56,6 @@ class ViewBuilder {
       divTemplate.appendChild(divUl);
       rootTemplate.appendChild(divTemplate);
     }
-
   }
 
   static generateView(divUl, item, index) {
@@ -79,8 +78,6 @@ class ViewBuilder {
     ViewBuilder.generateEditIcon(detail, item);
     ViewBuilder.generateReadMore(detail, item);
     ViewBuilder.generateDeleteIcon(detail, item);
-
-
 
     divUl.appendChild(detail);
     //return divUl;
@@ -178,9 +175,9 @@ class ViewBuilder {
         }
       });
     }
-    let videoSlider = document.createElement('div')
-    if(item.videos.length){
-      ViewBuilder.buildHtmlVideos(item.videos).forEach((DivSlider, index) =>{
+    let videoSlider = document.createElement('div');
+    if (item.videos.length) {
+      ViewBuilder.buildHtmlVideos(item.videos).forEach((DivSlider, index) => {
         let newVideo = document.createElement('video');
         newVideo.setAttribute('class', 'item');
         newVideo.setAttribute('id', 'showvod_' + index);
@@ -195,7 +192,7 @@ class ViewBuilder {
         } else {
           // hide the rest
         }
-      })
+      });
     }
 
     let BodyContentTag = document.createElement('a');
@@ -387,7 +384,10 @@ class ViewBuilder {
       let imgData = img.replace(/{/, '').replace(/}/, '');
       console.log(imgData + ' stripping');
       if (imgData.charAt(0) === '"' && imgData.charAt(imgData.length - 1)) {
-        imgData = `https://goomtaxiuser.herokuapp.com/UI/images/${imgData.substr(1, imgData.length - 2)}`;
+        imgData = `https://goomtaxiuser.herokuapp.com/UI/images/${imgData.substr(
+          1,
+          imgData.length - 2,
+        )}`;
       }
       console.log('string data:' + imgData);
       console.log('this is the uploaded data ' + imgData);
@@ -403,7 +403,7 @@ class ViewBuilder {
     });
 
     console.log(allVidEl);
-    return  allVidEl;
+    return allVidEl;
   }
 
   static modalPreview(data) {
@@ -424,11 +424,11 @@ class ViewBuilder {
     }
 
     var videoSlides = document.getElementById('videoSlides');
-    if(data.videos.length){
-      ViewBuilder.buildHtmlVideos(data.videos).forEach((vid) =>{
-                //console.log(img)
+    if (data.videos.length) {
+      ViewBuilder.buildHtmlVideos(data.videos).forEach(vid => {
+        //console.log(img)
         videoSlides.appendChild(vid);
-      })
+      });
     }
 
     let captionText = document.getElementById('captionView');
@@ -507,112 +507,95 @@ class ViewBuilder {
     };
   }
 
+  static ShowProfile(promiseData) {
+    promiseData
+      .then(datas => {
+        console.log(datas);
 
-  static ShowProfile(promiseData){
-    promiseData.then((datas) => {
+        const tablebody = document.getElementById('tablebody');
 
-      console.log(datas)
+        let intervention,
+          interventionDraft,
+          interventionUnderInvestigation,
+          interventionResolved,
+          interventionRejected;
 
-      const tablebody = document.getElementById('tablebody');
+        if (datas[0].error) {
+          intervention = datas[0].error;
+          interventionDraft = 0;
+          interventionUnderInvestigation = 0;
+          interventionResolved = 0;
+          interventionRejected = 0;
+        } else if (datas[0].data[0].interventions) {
+          intervention = datas[0].data[0].interventions;
+          interventionDraft = intervention.filter(i => i.status === 'draft').length;
+          interventionUnderInvestigation = intervention.filter(
+            i => i.status === 'under investigation',
+          ).length;
+          interventionResolved = intervention.filter(i => i.status === 'resolved').length;
+          interventionRejected = intervention.filter(i => i.status === 'rejected').length;
+        } else {
+          interventionDraft = 0;
+          interventionUnderInvestigation = 0;
+          interventionResolved = 0;
+          interventionRejected = 0;
+        }
 
-      let intervention,
-      interventionDraft, 
-      interventionUnderInvestigation,
-       interventionResolved, 
-       interventionRejected;
-      
+        document.getElementById('intervention-draft').innerHTML = interventionDraft;
+        document.getElementById(
+          'intervention-under-investigation',
+        ).innerHTML = interventionUnderInvestigation;
+        document.getElementById('intervention-resolved').innerHTML = interventionResolved;
+        document.getElementById('intervention-rejected').innerHTML = interventionRejected;
 
-      if(datas[0].error){
-        intervention= datas[0].error;
-        interventionDraft = 0; 
-        interventionUnderInvestigation =0;
-         interventionResolved =0;
-          interventionRejected =0;
-      }
-      else if(datas[0].data[0].interventions) {
-        intervention = datas[0].data[0].interventions;
-      interventionDraft = intervention.filter(i => i.status === 'draft').length;
-      interventionUnderInvestigation = intervention.filter(i => i.status === 'under investigation').length;
-      interventionResolved = intervention.filter(i => i.status === 'resolved').length;
-      interventionRejected = intervention.filter(i => i.status === 'rejected').length;
+        let redFlag, redFlagUnderInvestigation, redFlagDraft, redFlagRejected, redFlagResolved;
 
-     
-      }else {
-        interventionDraft = 0;
-        interventionUnderInvestigation = 0;
-        interventionResolved = 0;
-        interventionRejected = 0;
-      }
-
-       document.getElementById('intervention-draft').innerHTML = interventionDraft;
-      document.getElementById('intervention-under-investigation').innerHTML = interventionUnderInvestigation;
-      document.getElementById('intervention-resolved').innerHTML = interventionResolved;
-      document.getElementById('intervention-rejected').innerHTML = interventionRejected;
-
-      
-      
-
-      let redFlag, redFlagUnderInvestigation , redFlagDraft, redFlagRejected,  redFlagResolved;
-     
-      if(datas[1].error){
-        redFlag = datas[1].error;
-         redFlagDraft = 0;
-         redFlagUnderInvestigation =0;
-         redFlagResolved =0;
-          redFlagRejected = 0
-      }
-      else if(datas[1].data[0].redFlags ){
-        redFlag = datas[1].data[0].redFlags;
-        redFlagDraft = redFlag.filter(i => i.status === 'draft').length;
-        redFlagUnderInvestigation = redFlag.filter(i => i.status === 'under investigation').length;
-        redFlagResolved = redFlag.filter(i => i.status === 'resolved').length;
-        redFlagRejected = redFlag.filter(i => i.status === 'rejected').length;
-
-        
-      }else {
-        redFlagDraft = 0;
-         redFlagUnderInvestigation =0;
-         redFlagResolved =0;
-          redFlagRejected = 0
-      }
-console.log(typeof intervention)
-      document.getElementById('red-flag-draft').innerHTML = redFlagDraft;
-        document.getElementById('red-flag-under-investigation').innerHTML = redFlagUnderInvestigation;
+        if (datas[1].error) {
+          redFlag = datas[1].error;
+          redFlagDraft = 0;
+          redFlagUnderInvestigation = 0;
+          redFlagResolved = 0;
+          redFlagRejected = 0;
+        } else if (datas[1].data[0].redFlags) {
+          redFlag = datas[1].data[0].redFlags;
+          redFlagDraft = redFlag.filter(i => i.status === 'draft').length;
+          redFlagUnderInvestigation = redFlag.filter(i => i.status === 'under investigation')
+            .length;
+          redFlagResolved = redFlag.filter(i => i.status === 'resolved').length;
+          redFlagRejected = redFlag.filter(i => i.status === 'rejected').length;
+        } else {
+          redFlagDraft = 0;
+          redFlagUnderInvestigation = 0;
+          redFlagResolved = 0;
+          redFlagRejected = 0;
+        }
+        console.log(typeof intervention);
+        document.getElementById('red-flag-draft').innerHTML = redFlagDraft;
+        document.getElementById(
+          'red-flag-under-investigation',
+        ).innerHTML = redFlagUnderInvestigation;
         document.getElementById('red-flag-resolved').innerHTML = redFlagResolved;
         document.getElementById('red-flag-rejected').innerHTML = redFlagRejected;
-      let allRecords, eachRecord ;
-      if(typeof intervention == 'object'  &&  typeof redFlag  == 'object'  ){
+        let allRecords, eachRecord;
+        if (typeof intervention == 'object' && typeof redFlag == 'object') {
+          allRecords = intervention.concat(redFlag);
 
+          const sortedArray = allRecords.sort((a, b) => a.id - b.id);
 
-        allRecords = intervention.concat(redFlag);
+          ViewBuilder.buildRecordUI(allRecords, 'profile-data');
+        } else if (typeof intervention == 'object' && typeof redFlag != 'object') {
+          ViewBuilder.buildRecordUI(intervention, 'profile-data');
+        } else if (typeof intervention != 'object' && typeof redFlag == 'object') {
+          ViewBuilder.buildRecordUI(redFlag, 'profile-data');
+        } else {
+          let emptyData = [];
 
-      
-      const sortedArray = allRecords.sort((a, b) => a.id - b.id);
-    
-
-      ViewBuilder.buildRecordUI(allRecords, 'profile-data') 
-      }else if(typeof intervention == 'object'  &&  typeof redFlag  != 'object' ){
-           
-         ViewBuilder.buildRecordUI(intervention, 'profile-data') 
-      }else if (typeof intervention != 'object'  &&  typeof redFlag  == 'object' ){
-
-        
-        ViewBuilder.buildRecordUI(redFlag, 'profile-data') 
-
-      }else {
-          
-       let emptyData = [];
-
-       ViewBuilder.buildRecordUI(emptyData, 'profile-data')
-
-      }
-      
-      
-
-
-    }).catch((error) => {
-      throw error;
-    });
+          ViewBuilder.buildRecordUI(emptyData, 'profile-data');
+        }
+      })
+      .catch(error => {
+        throw error;
+      });
   }
 }
 

@@ -6,24 +6,23 @@ import FetchPromiseApi from './helpers/FetchPromiseApi';
 let activeUrl = getOnlineUrlConnection();
 let baseUrl = getOnlineUrlConnection();
 
-
 function searchTable() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("foo-table-input");
+  input = document.getElementById('foo-table-input');
   filter = input.value.toUpperCase();
-  table = document.getElementById("demo-foo-pagination");
-  tr = table.getElementsByTagName("tr");
+  table = document.getElementById('demo-foo-pagination');
+  tr = table.getElementsByTagName('tr');
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName('td')[2];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
+        tr[i].style.display = '';
       } else {
-        tr[i].style.display = "none";
+        tr[i].style.display = 'none';
       }
     }
   }
@@ -60,10 +59,9 @@ class ApiGetOneRecord {
       .then(response => response.json())
       .then(data => {
         if (data.status === 200) {
-
           const records = data.data[0].intervention;
           const { status, location, comment, images, videos } = records;
-          searchTable()
+          searchTable();
           return records;
         }
       })

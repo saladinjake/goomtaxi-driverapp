@@ -11,12 +11,11 @@ class Router {
     }
   }
 
-  static goTo(page){
+  static goTo(page) {
     let url = window.location.pathname;
     let filename = url.substring(url.lastIndexOf('/') + 1);
-    
-      window.location.href = page;
-    
+
+    window.location.href = page;
   }
 }
 

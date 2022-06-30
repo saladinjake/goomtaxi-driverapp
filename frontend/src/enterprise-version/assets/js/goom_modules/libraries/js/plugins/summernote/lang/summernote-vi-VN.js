@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'vi-VN': {
       font: {
@@ -9,7 +9,7 @@
         height: 'Chiều cao dòng',
         name: 'Phông chữ',
         strikethrough: 'Gạch ngang',
-        size: 'Cỡ chữ'
+        size: 'Cỡ chữ',
       },
       image: {
         image: 'Hình ảnh',
@@ -23,14 +23,14 @@
         dragImageHere: 'Thả Ảnh ở vùng này',
         selectFromFiles: 'Chọn từ File',
         url: 'URL',
-        remove: 'Xóa'
+        remove: 'Xóa',
       },
       video: {
         video: 'Video',
         videoLink: 'Link đến Video',
         insert: 'Chèn Video',
         url: 'URL',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion và Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion và Youku)',
       },
       link: {
         link: 'Link',
@@ -39,13 +39,13 @@
         edit: 'Sửa',
         textToDisplay: 'Văn bản hiển thị',
         url: 'URL',
-        openInNewWindow: 'Mở ở Cửa sổ mới'
+        openInNewWindow: 'Mở ở Cửa sổ mới',
       },
       table: {
-        table: 'Bảng'
+        table: 'Bảng',
       },
       hr: {
-        insert: 'Chèn'
+        insert: 'Chèn',
       },
       style: {
         style: 'Kiểu chữ',
@@ -57,16 +57,16 @@
         h3: 'H3',
         h4: 'H4',
         h5: 'H5',
-        h6: 'H6'
+        h6: 'H6',
       },
       lists: {
         unordered: 'Liệt kê danh sách',
-        ordered: 'Liệt kê theo thứ tự'
+        ordered: 'Liệt kê theo thứ tự',
       },
       options: {
         help: 'Trợ giúp',
         fullscreen: 'Toàn Màn hình',
-        codeview: 'Xem Code'
+        codeview: 'Xem Code',
       },
       paragraph: {
         paragraph: 'Canh lề',
@@ -75,7 +75,7 @@
         left: 'Canh trái',
         center: 'Canh giữa',
         right: 'Canh phải',
-        justify: 'Canh đều'
+        justify: 'Canh đều',
       },
       color: {
         recent: 'Màu chữ',
@@ -85,7 +85,7 @@
         transparent: 'trong suốt',
         setTransparent: 'Nền trong suốt',
         reset: 'Thiết lập lại',
-        resetToDefault: 'Trở lại ban đầu'
+        resetToDefault: 'Trở lại ban đầu',
       },
       shortcut: {
         shortcuts: 'Phím tắt',
@@ -93,12 +93,12 @@
         textFormatting: 'Định dạng Văn bản',
         action: 'Hành động',
         paragraphFormatting: 'Định dạng',
-        documentStyle: 'Kiểu văn bản'
+        documentStyle: 'Kiểu văn bản',
       },
       history: {
         undo: 'Lùi lại',
-        redo: 'Làm lại'
-      }
-    }
+        redo: 'Làm lại',
+      },
+    },
   });
 })(jQuery);

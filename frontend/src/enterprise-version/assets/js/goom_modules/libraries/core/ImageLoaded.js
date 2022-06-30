@@ -1,4 +1,3 @@
-
 'use strict';
 class ImageLoaded {
   constructor() {}
@@ -11,7 +10,6 @@ class ImageLoaded {
       //   'http://localhost:4000/UI/images/d.jpg',
       //   'http://localhost:4000/UI/images/e.jpg',
       //   'http://localhost:4000/UI/images/f.jpg',
-
       //   'http://localhost:4000/UI/images/g.jpg',
       //   'http://localhost:4000/UI/images/h.jpg',
       //   'http://localhost:4000/UI/images/i.jpg',

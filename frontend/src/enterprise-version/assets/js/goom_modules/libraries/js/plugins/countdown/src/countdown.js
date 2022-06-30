@@ -1,17 +1,23 @@
 var defaultOptions = {
-  date: "June 7, 2087 15:03:25",
+  date: 'June 7, 2087 15:03:25',
   refresh: 1000,
   offset: 0,
   onEnd: function() {
     return;
   },
-  render: function (date) {
-    this.el.innerHTML = date.years + " years, " +
-                        date.days  + " days, " +
-                        this.leadingZeros(date.hours) + " hours, " +
-                        this.leadingZeros(date.min) + " min and " +
-                        this.leadingZeros(date.sec) + " sec";
-  }
+  render: function(date) {
+    this.el.innerHTML =
+      date.years +
+      ' years, ' +
+      date.days +
+      ' days, ' +
+      this.leadingZeros(date.hours) +
+      ' hours, ' +
+      this.leadingZeros(date.min) +
+      ' min and ' +
+      this.leadingZeros(date.sec) +
+      ' sec';
+  },
 };
 
 /**
@@ -20,7 +26,6 @@ var defaultOptions = {
  * @param {Object}      options (optional) Options for the plugin
  */
 var Countdown = function(el, options) {
-
   /**
    * Reference to the DOM element
    * @type {HTMLElement}
@@ -63,12 +68,12 @@ var Countdown = function(el, options) {
     var diff = (this.options.date.getTime() - Date.now() + this.options.offset) / 1000;
 
     var dateData = {
-      years:    0,
-      days:     0,
-      hours:    0,
-      min:      0,
-      sec:      0,
-      millisec: 0
+      years: 0,
+      days: 0,
+      hours: 0,
+      min: 0,
+      sec: 0,
+      millisec: 0,
     };
 
     if (diff <= 0) {
@@ -79,7 +84,7 @@ var Countdown = function(el, options) {
       return dateData;
     }
 
-    if (diff >= (365.25 * 86400)) {
+    if (diff >= 365.25 * 86400) {
       dateData.years = Math.floor(diff / (365.25 * 86400));
       diff -= dateData.years * 365.25 * 86400;
     }
@@ -101,7 +106,7 @@ var Countdown = function(el, options) {
 
     dateData.sec = Math.round(diff);
 
-    dateData.millisec = diff % 1 * 1000;
+    dateData.millisec = (diff % 1) * 1000;
 
     return dateData;
   }.bind(this);
@@ -162,7 +167,9 @@ var Countdown = function(el, options) {
    */
   this.start = function() {
     // don't start if the countdown is already started
-    if (this.interval) { return; }
+    if (this.interval) {
+      return;
+    }
 
     this.render();
 
@@ -182,7 +189,6 @@ var Countdown = function(el, options) {
     this.options.offset = offset;
     return this;
   }.bind(this);
-
 
   // initial start of the countdown or initial render
   this.start();

@@ -6,10 +6,7 @@ import FetchPromiseApi from './helpers/FetchPromiseApi';
 let activeUrl = getOnlineUrlConnection();
 let baseUrl = getOnlineUrlConnection();
 
-
 class ApiGetBothRecord {
-  
-
   static getLoggedInUser() {
     const user = JSON.parse(localStorage.getItem('userToken'));
     if (!user) {

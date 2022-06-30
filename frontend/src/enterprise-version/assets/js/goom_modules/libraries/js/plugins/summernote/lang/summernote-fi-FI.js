@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'fi-FI': {
       font: {
@@ -9,7 +9,7 @@
         height: 'Riviväli',
         name: 'Kirjasintyyppi',
         strikethrough: 'Yliviivaus',
-        size: 'Kirjasinkoko'
+        size: 'Kirjasinkoko',
       },
       image: {
         image: 'Kuva',
@@ -23,14 +23,14 @@
         dragImageHere: 'Vedä kuva tähän',
         selectFromFiles: 'Valitse tiedostoista',
         url: 'URL-osoitteen mukaan',
-        remove: 'Poista kuva'
+        remove: 'Poista kuva',
       },
       video: {
         video: 'Video',
         videoLink: 'Linkki videoon',
         insert: 'Lisää video',
         url: 'Videon URL-osoite?',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion tai Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion tai Youku)',
       },
       link: {
         link: 'Linkki',
@@ -39,13 +39,13 @@
         edit: 'Muokkaa',
         textToDisplay: 'Näytettävä teksti',
         url: 'Linkin URL-osoite?',
-        openInNewWindow: 'Avaa uudessa ikkunassa'
+        openInNewWindow: 'Avaa uudessa ikkunassa',
       },
       table: {
-        table: 'Taulukko'
+        table: 'Taulukko',
       },
       hr: {
-        insert: 'Lisää vaakaviiva'
+        insert: 'Lisää vaakaviiva',
       },
       style: {
         style: 'Tyyli',
@@ -57,16 +57,16 @@
         h3: 'Otsikko 3',
         h4: 'Otsikko 4',
         h5: 'Otsikko 5',
-        h6: 'Otsikko 6'
+        h6: 'Otsikko 6',
       },
       lists: {
         unordered: 'Luettelomerkitty luettelo',
-        ordered: 'Numeroitu luettelo'
+        ordered: 'Numeroitu luettelo',
       },
       options: {
         help: 'Ohje',
         fullscreen: 'Koko näyttö',
-        codeview: 'HTML-näkymä'
+        codeview: 'HTML-näkymä',
       },
       paragraph: {
         paragraph: 'Kappale',
@@ -75,7 +75,7 @@
         left: 'Tasaus vasemmalle',
         center: 'Keskitä',
         right: 'Tasaus oikealle',
-        justify: 'Tasaa'
+        justify: 'Tasaa',
       },
       color: {
         recent: 'Viimeisin väri',
@@ -85,7 +85,7 @@
         transparent: 'Läpinäkyvä',
         setTransparent: 'Aseta läpinäkyväksi',
         reset: 'Palauta',
-        resetToDefault: 'Palauta oletusarvoksi'
+        resetToDefault: 'Palauta oletusarvoksi',
       },
       shortcut: {
         shortcuts: 'Pikanäppäimet',
@@ -93,12 +93,12 @@
         textFormatting: 'Tekstin muotoilu',
         action: 'Toiminto',
         paragraphFormatting: 'Kappaleen muotoilu',
-        documentStyle: 'Asiakirjan tyyli'
+        documentStyle: 'Asiakirjan tyyli',
       },
       history: {
         undo: 'Kumoa',
-        redo: 'Toista'
-      }
-    }
+        redo: 'Toista',
+      },
+    },
   });
 })(jQuery);

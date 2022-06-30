@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'sr-RS': {
       font: {
@@ -8,7 +8,7 @@
         clear: 'Уклони стилове фонта',
         height: 'Висина линије',
         strikethrough: 'Прецртано',
-        size: 'Величина фонта'
+        size: 'Величина фонта',
       },
       image: {
         image: 'Слика',
@@ -22,14 +22,14 @@
         dragImageHere: 'Превуци слику овде',
         selectFromFiles: 'Изабери из датотеке',
         url: 'Адреса слике',
-        remove: 'Уклони слику'
+        remove: 'Уклони слику',
       },
       video: {
         video: 'Видео',
         videoLink: 'Веза ка видеу',
         insert: 'Уметни видео',
         url: 'URL видео',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion или Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion или Youku)',
       },
       link: {
         link: 'Веза',
@@ -38,13 +38,13 @@
         edit: 'Уреди',
         textToDisplay: 'Текст за приказ',
         url: 'Интернет адреса',
-        openInNewWindow: 'Отвори у новом прозору'
+        openInNewWindow: 'Отвори у новом прозору',
       },
       table: {
-        table: 'Табела'
+        table: 'Табела',
       },
       hr: {
-        insert: 'Уметни хоризонталну линију'
+        insert: 'Уметни хоризонталну линију',
       },
       style: {
         style: 'Стил',
@@ -56,16 +56,16 @@
         h3: 'Заглавље 3',
         h4: 'Заглавље 4',
         h5: 'Заглавље 5',
-        h6: 'Заглавље 6'
+        h6: 'Заглавље 6',
       },
       lists: {
         unordered: 'Обична листа',
-        ordered: 'Нумерисана листа'
+        ordered: 'Нумерисана листа',
       },
       options: {
         help: 'Помоћ',
         fullscreen: 'Преко целог екрана',
-        codeview: 'Изворни код'
+        codeview: 'Изворни код',
       },
       paragraph: {
         paragraph: 'Параграф',
@@ -74,7 +74,7 @@
         left: 'Поравнај у лево',
         center: 'Центрирано',
         right: 'Поравнај у десно',
-        justify: 'Поравнај обострано'
+        justify: 'Поравнај обострано',
       },
       color: {
         recent: 'Последња боја',
@@ -84,7 +84,7 @@
         transparent: 'Провидна',
         setTransparent: 'Провидна',
         reset: 'Опозив',
-        resetToDefault: 'Подразумевана'
+        resetToDefault: 'Подразумевана',
       },
       shortcut: {
         shortcuts: 'Пречице са тастатуре',
@@ -93,12 +93,12 @@
         action: 'Акција',
         paragraphFormatting: 'Форматирање параграфа',
         documentStyle: 'Стил документа',
-        extraKeys: 'Додатне комбинације'
+        extraKeys: 'Додатне комбинације',
       },
       history: {
         undo: 'Поништи',
-        redo: 'Понови'
-      }
-    }
+        redo: 'Понови',
+      },
+    },
   });
 })(jQuery);

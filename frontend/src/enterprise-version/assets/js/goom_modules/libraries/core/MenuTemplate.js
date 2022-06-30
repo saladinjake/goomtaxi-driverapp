@@ -4,18 +4,18 @@ function removeClassx(e, c) {
     if (c == 'active') {
       elm[i].classList.remove('active');
     } else {
-      if (!elm[i].classList.contains('active')) elm[i].querySelector('.list').classList.remove('show');
+      if (!elm[i].classList.contains('active'))
+        elm[i].querySelector('.list').classList.remove('show');
     }
   }
 }
 
-export default class MenuTemplate{
-	constructor(){
-	 this.headerTemplate = document.getElementById("headerTemplate");
-		this.navigationTemplate = document.getElementById("closed");
-	  
-	  
-	  this.frontendMenuTemplate =`
+export default class MenuTemplate {
+  constructor() {
+    this.headerTemplate = document.getElementById('headerTemplate');
+    this.navigationTemplate = document.getElementById('closed');
+
+    this.frontendMenuTemplate = `
 
                             <li class="text-muted menu-title">Navigation</li>
                             
@@ -78,7 +78,7 @@ export default class MenuTemplate{
                       
             
 `;
-	  this.backendMenuTemplate =`
+    this.backendMenuTemplate = `
       
         
                     
@@ -288,7 +288,7 @@ export default class MenuTemplate{
 
                     
               `;
-	  this.frontendHeader=`
+    this.frontendHeader = `
           <div class="topbar">
 
                 <div class="topbar-left">
@@ -367,7 +367,7 @@ export default class MenuTemplate{
             </div>
 
 	  `;
-	  this.backendHeader=`<!-- Top Bar Start -->
+    this.backendHeader = `<!-- Top Bar Start -->
         <div class="topbar">
 
             <!-- LOGO -->
@@ -543,8 +543,7 @@ export default class MenuTemplate{
         </div>
         <!-- Top Bar End -->`;
 
-
-        this.driverMenuTemplate =`
+    this.driverMenuTemplate = `
 
 
         <li class="text-muted menu-title">Navigation</li>
@@ -616,94 +615,77 @@ export default class MenuTemplate{
 
 
      `;
+  }
 
-	  
-	}
+  renderDriverNavigation() {
+    this.navigationTemplate.innerHTML = this.driverMenuTemplate;
 
-    renderDriverNavigation(){
+    setTimeout(() => {
+      var mClass = '.sub-toggle';
+      var menu = document.querySelectorAll('.sub-toggle');
+      menu.forEach(function(o) {
+        o.addEventListener('click', function(e) {
+          // e.preventDefault();
+          removeClassx(o, 'active');
+          this.classList.add('active');
+          removeClassx(o);
+          this.querySelector('.list').classList.toggle('show');
+        });
+      });
+    }, 3000);
+  }
 
-     
-        this.navigationTemplate.innerHTML = this.driverMenuTemplate;
+  attachEvents() {
+    if (localStorage.getItem('userToken')) {
+      let user = JSON.parse(localStorage.getItem('userToken'));
 
-        setTimeout(()=>{
-           var mClass = '.sub-toggle'
-            var menu = document.querySelectorAll('.sub-toggle');
-            menu.forEach(function(o) {
-              o.addEventListener('click', function(e) {
-               // e.preventDefault();
-                removeClassx(o, 'active');
-                this.classList.add('active');
-                removeClassx(o);
-                this.querySelector('.list').classList.toggle('show');
-              });
-            }); 
-        },3000)
-    
-    
-    }
-
-	attachEvents(){
-       
-        if(localStorage.getItem("userToken")){
-          let user = JSON.parse(localStorage.getItem('userToken'));
-         
-          if(user.user.isAdmin){
-            //setTimeout(()=>{
-              return this.renderAdminNavigation()
-            //},7000)
-          
-          }else if(user.user.roles=="Individual Driver"){
-            return this.renderDriverNavigation();
-          }
-            
-        return this.renderUserNavigation();
-
+      if (user.user.isAdmin) {
+        //setTimeout(()=>{
+        return this.renderAdminNavigation();
+        //},7000)
+      } else if (user.user.roles == 'Individual Driver') {
+        return this.renderDriverNavigation();
       }
-       
-		
-	}
 
-	renderUserNavigation(){
-		
-		// this.headerTemplate.innerHTML = this.frontendHeader;
-		this.navigationTemplate.innerHTML = this.frontendMenuTemplate;
-        setTimeout(()=>{
-           var mClass = '.sub-toggle'
-            var menu = document.querySelectorAll('.sub-toggle');
-            menu.forEach(function(o) {
-              o.addEventListener('click', function(e) {
-                //e.preventDefault();
-                removeClassx(o, 'active');
-                this.classList.add('active');
-                removeClassx(o);
-                this.querySelector('.list').classList.toggle('show');
-              });
-            }); 
-        },3000)
-         
-	}
+      return this.renderUserNavigation();
+    }
+  }
 
-	renderAdminNavigation(){
-      //this.headerTemplate.innerHTML = this.backendHeader;
-      
-		this.navigationTemplate.innerHTML = this.backendMenuTemplate;
+  renderUserNavigation() {
+    // this.headerTemplate.innerHTML = this.frontendHeader;
+    this.navigationTemplate.innerHTML = this.frontendMenuTemplate;
+    setTimeout(() => {
+      var mClass = '.sub-toggle';
+      var menu = document.querySelectorAll('.sub-toggle');
+      menu.forEach(function(o) {
+        o.addEventListener('click', function(e) {
+          //e.preventDefault();
+          removeClassx(o, 'active');
+          this.classList.add('active');
+          removeClassx(o);
+          this.querySelector('.list').classList.toggle('show');
+        });
+      });
+    }, 3000);
+  }
 
-        setTimeout(()=>{
-           var mClass = '.sub-toggle'
-            var menu = document.querySelectorAll('.sub-toggle');
-            menu.forEach(function(o) {
-              o.addEventListener('click', function(e) {
-               // e.preventDefault();
-                removeClassx(o, 'active');
-                this.classList.add('active');
-                removeClassx(o);
-                this.querySelector('.list').classList.toggle('show');
-              });
-            }); 
-        },3000)
-	}
+  renderAdminNavigation() {
+    //this.headerTemplate.innerHTML = this.backendHeader;
+
+    this.navigationTemplate.innerHTML = this.backendMenuTemplate;
+
+    setTimeout(() => {
+      var mClass = '.sub-toggle';
+      var menu = document.querySelectorAll('.sub-toggle');
+      menu.forEach(function(o) {
+        o.addEventListener('click', function(e) {
+          // e.preventDefault();
+          removeClassx(o, 'active');
+          this.classList.add('active');
+          removeClassx(o);
+          this.querySelector('.list').classList.toggle('show');
+        });
+      });
+    }, 3000);
+  }
 }
-
-
-
-

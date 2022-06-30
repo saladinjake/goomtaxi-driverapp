@@ -7,7 +7,7 @@ class Paginator {
     //console.log('me---' + data);
     this.pageSize = 5;
     this.pageNum = 0;
-    this.locId =locId
+    this.locId = locId;
   }
 
   static hasClass(el, classname) {
@@ -39,7 +39,7 @@ class Paginator {
     this.data = this.loadRecordData();
     console.log(this.data);
 
-    return ViewBuilder.buildRecordUI(this.data,this.locId);
+    return ViewBuilder.buildRecordUI(this.data, this.locId);
   }
 
   previousPage() {
@@ -47,7 +47,7 @@ class Paginator {
     this.data = this.loadRecordData();
     console.log(this.data);
 
-    return ViewBuilder.buildRecordUI(this.data,this.locId);
+    return ViewBuilder.buildRecordUI(this.data, this.locId);
   }
 
   loadRecordData() {

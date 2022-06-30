@@ -4,8 +4,4 @@ import ReactDOM from 'react-dom';
 // import store from './helpers/store';
 import App from './App';
 
-ReactDOM.render(
-    <App />
-  ,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));

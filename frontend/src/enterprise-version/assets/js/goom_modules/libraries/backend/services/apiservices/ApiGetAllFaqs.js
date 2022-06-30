@@ -11,16 +11,15 @@ class ApiGetAllFaqs {
     GateKeepersForUser();
     const user = JSON.parse(localStorage.getItem('userToken'));
     let recordUrl;
-    
-      recordUrl = activeUrl + `/faqs`;
-      
-  
+
+    recordUrl = activeUrl + `/faqs`;
+
     console.log('specific url: ' + recordUrl);
 
     return fetch(recordUrl, {
       method: 'GET',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         'x-access-token': user.token,
       },
@@ -30,7 +29,7 @@ class ApiGetAllFaqs {
       .then(data => {
         if (data.status === 200) {
           const records = data;
-          
+
           return records;
         }
       })

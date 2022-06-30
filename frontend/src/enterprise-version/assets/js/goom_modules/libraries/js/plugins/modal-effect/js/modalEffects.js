@@ -4,54 +4,48 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- * 
+ *
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
 var ModalEffects = (function() {
+  function init() {
+    var overlay = document.querySelector('.md-overlay');
 
-	function init() {
+    [].slice.call(document.querySelectorAll('.md-trigger')).forEach(function(el, i) {
+      var modal = document.querySelector('#' + el.getAttribute('data-modal')),
+        close = modal.querySelector('.md-close');
 
-		var overlay = document.querySelector( '.md-overlay' );
+      function removeModal(hasPerspective) {
+        classie.remove(modal, 'md-show');
 
-		[].slice.call( document.querySelectorAll( '.md-trigger' ) ).forEach( function( el, i ) {
+        if (hasPerspective) {
+          classie.remove(document.documentElement, 'md-perspective');
+        }
+      }
 
-			var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
-				close = modal.querySelector( '.md-close' );
+      function removeModalHandler() {
+        removeModal(classie.has(el, 'md-setperspective'));
+      }
 
-			function removeModal( hasPerspective ) {
-				classie.remove( modal, 'md-show' );
+      el.addEventListener('click', function(ev) {
+        classie.add(modal, 'md-show');
+        overlay.removeEventListener('click', removeModalHandler);
+        overlay.addEventListener('click', removeModalHandler);
 
-				if( hasPerspective ) {
-					classie.remove( document.documentElement, 'md-perspective' );
-				}
-			}
+        if (classie.has(el, 'md-setperspective')) {
+          setTimeout(function() {
+            classie.add(document.documentElement, 'md-perspective');
+          }, 25);
+        }
+      });
 
-			function removeModalHandler() {
-				removeModal( classie.has( el, 'md-setperspective' ) ); 
-			}
+      close.addEventListener('click', function(ev) {
+        ev.stopPropagation();
+        removeModalHandler();
+      });
+    });
+  }
 
-			el.addEventListener( 'click', function( ev ) {
-				classie.add( modal, 'md-show' );
-				overlay.removeEventListener( 'click', removeModalHandler );
-				overlay.addEventListener( 'click', removeModalHandler );
-
-				if( classie.has( el, 'md-setperspective' ) ) {
-					setTimeout( function() {
-						classie.add( document.documentElement, 'md-perspective' );
-					}, 25 );
-				}
-			});
-
-			close.addEventListener( 'click', function( ev ) {
-				ev.stopPropagation();
-				removeModalHandler();
-			});
-
-		} );
-
-	}
-
-	init();
-
+  init();
 })();

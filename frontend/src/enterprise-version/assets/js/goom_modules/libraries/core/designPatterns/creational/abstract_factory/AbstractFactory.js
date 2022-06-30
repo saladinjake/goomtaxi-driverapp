@@ -5,76 +5,63 @@ import IReporterWebsiteHomeRecords from '../../../../frontend/controllers/Home';
 import IReporterWebsiteInterventionsRecords from '../../../../frontend/controllers/Interventions';
 import IReporterRedFlagRecords from '../../../../frontend/controllers/Redflag';
 class AbstractFactoryAuthControllers {
-    constructor() {
-    }
+  constructor() {}
 
-    createLoginCoreController () {
-    }
+  createLoginCoreController() {}
 
-    createSignUpCoreController () {
-    }
+  createSignUpCoreController() {}
 }
 
 class ConcreteFactoryAuthControllers extends AbstractFactoryAuthControllers {
-    constructor() {
-        super()
-       
-    }
+  constructor() {
+    super();
+  }
 
-    createLoginCoreController () {
-       
-        return new IReporterWebsiteLogin()
-    }
+  createLoginCoreController() {
+    return new IReporterWebsiteLogin();
+  }
 
-    createSignUpCoreController () {
-        
-        return new IReporterWebsiteSignUp()
-    }
+  createSignUpCoreController() {
+    return new IReporterWebsiteSignUp();
+  }
 }
 
 class AbstractFactoryDataRecordControllers {
-    constructor() {
-    }
+  constructor() {}
 
-    createHomeRecords () {
-    }
+  createHomeRecords() {}
 
-    createInterventionsRecords () {
-    }
+  createInterventionsRecords() {}
 
-    createRedFlagRecords () {
-    }
+  createRedFlagRecords() {}
 }
 
 class ConcreteFactoryDataRecordControllers extends AbstractFactoryDataRecordControllers {
-    constructor() {
-        super()
-        
-    }
+  constructor() {
+    super();
+  }
 
-    createHomeRecords () {
-        return new IReporterWebsiteHomeRecords();
-    }
+  createHomeRecords() {
+    return new IReporterWebsiteHomeRecords();
+  }
 
-    createInterventionsRecords () {
-        return new IReporterWebsiteInterventionsRecords();
-    }
+  createInterventionsRecords() {
+    return new IReporterWebsiteInterventionsRecords();
+  }
 
-    createRedFlagRecords () {
-        return new IReporterRedFlagRecords();
-    }
+  createRedFlagRecords() {
+    return new IReporterRedFlagRecords();
+  }
 }
 
 //the products are in seperate files i imported for simplicity
 
 function initializeAbstractionsWithFactoryMachines() {
-    var AuthFactory = new ConcreteFactoryAuthControllers()
-    
-    
-    var DataRecordFactory = new ConcreteFactoryDataRecordControllers()
-   
+  var AuthFactory = new ConcreteFactoryAuthControllers();
 
-    return {authFactory: AuthFactory, dataFactory:  DataRecordFactory}
+  var DataRecordFactory = new ConcreteFactoryDataRecordControllers();
+
+  return { authFactory: AuthFactory, dataFactory: DataRecordFactory };
 }
 
 const AbFactory = initializeAbstractionsWithFactoryMachines();

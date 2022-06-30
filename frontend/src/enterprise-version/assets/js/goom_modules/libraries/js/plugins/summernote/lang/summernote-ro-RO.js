@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'ro-RO': {
       font: {
@@ -8,7 +8,7 @@
         clear: 'Înlătură formatare font',
         height: 'Înălțime rând',
         strikethrough: 'Tăiat',
-        size: 'Dimensiune font'
+        size: 'Dimensiune font',
       },
       image: {
         image: 'Imagine',
@@ -21,14 +21,14 @@
         floatNone: 'Fară aliniere',
         dragImageHere: 'Trage o imagine aici',
         selectFromFiles: 'Alege din fişiere',
-        url: 'URL imagine'
+        url: 'URL imagine',
       },
       video: {
         video: 'Video',
         videoLink: 'Link video',
         insert: 'Inserează video',
         url: 'URL video?',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion sau Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion sau Youku)',
       },
       link: {
         link: 'Link',
@@ -36,13 +36,13 @@
         unlink: 'Înlătură link',
         edit: 'Editează',
         textToDisplay: 'Text ce va fi afişat',
-        url: 'Deschidere în fereastra nouă?'
+        url: 'Deschidere în fereastra nouă?',
       },
       table: {
-        table: 'Tabel'
+        table: 'Tabel',
       },
       hr: {
-        insert: 'Inserează o linie orizontală'
+        insert: 'Inserează o linie orizontală',
       },
       style: {
         style: 'Stil',
@@ -54,16 +54,16 @@
         h3: 'Titlu 3',
         h4: 'Titlu 4',
         h5: 'Titlu 5',
-        h6: 'Titlu 6'
+        h6: 'Titlu 6',
       },
       lists: {
         unordered: 'Listă neordonată',
-        ordered: 'Listă ordonată'
+        ordered: 'Listă ordonată',
       },
       options: {
         help: 'Ajutor',
         fullscreen: 'Măreşte',
-        codeview: 'Sursă'
+        codeview: 'Sursă',
       },
       paragraph: {
         paragraph: 'Paragraf',
@@ -72,7 +72,7 @@
         left: 'Aliniere la stânga',
         center: 'Aliniere centrală',
         right: 'Aliniere la dreapta',
-        justify: 'Aliniere în bloc'
+        justify: 'Aliniere în bloc',
       },
       color: {
         recent: 'Culoare recentă',
@@ -82,7 +82,7 @@
         transparent: 'Transparent',
         setTransparent: 'Setează transparent',
         reset: 'Resetează',
-        resetToDefault: 'Revino la iniţial'
+        resetToDefault: 'Revino la iniţial',
       },
       shortcut: {
         shortcuts: 'Scurtături tastatură',
@@ -90,13 +90,12 @@
         textFormatting: 'Formatare text',
         action: 'Acţiuni',
         paragraphFormatting: 'Formatare paragraf',
-        documentStyle: 'Stil paragraf'
+        documentStyle: 'Stil paragraf',
       },
       history: {
         undo: 'Starea anterioară',
-        redo: 'Starea ulterioară'
-      }
-
-    }
+        redo: 'Starea ulterioară',
+      },
+    },
   });
 })(jQuery);

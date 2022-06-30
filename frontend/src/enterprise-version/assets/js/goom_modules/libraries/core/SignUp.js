@@ -10,83 +10,63 @@ class WebsiteSignUp {
 
     // this.upgooSign()
 
-
     //only if this btn exists can user signup
     if (document.getElementById('signup_page')) {
       this.isLoggedIn();
-      console.log("you are in sign up")
+      console.log('you are in sign up');
       let signUp = document.getElementById('signup_btn');
       signUp.addEventListener('click', e => {
         e.preventDefault();
         that.authorize(e);
       });
 
-      $(".toggle-password").click(function() {
-
-        $(this).toggleClass("fa-eye fa-eye-slash");
-        var input = $($(this).attr("toggle"));
-        if (input.attr("type") == "password") {
-          input.attr("type", "text");
+      $('.toggle-password').click(function() {
+        $(this).toggleClass('fa-eye fa-eye-slash');
+        var input = $($(this).attr('toggle'));
+        if (input.attr('type') == 'password') {
+          input.attr('type', 'text');
         } else {
-          input.attr("type", "password");
+          input.attr('type', 'password');
         }
       });
 
-
       const pwHint = document.getElementById('me-password');
-    pwHint.addEventListener('focus', () =>{
-      MessageBoard.displayMsg('Password should contain alphabets and characters or numbers');
+      pwHint.addEventListener('focus', () => {
+        MessageBoard.displayMsg('Password should contain alphabets and characters or numbers');
 
-       // setTimeout(()=>{  MessageBoard.displayMsg('');},6000)
-    });
-
-
+        // setTimeout(()=>{  MessageBoard.displayMsg('');},6000)
+      });
     }
   }
 
-
-
-  upgooSign(){
-
-    document.getElementById("goosign").addEventListener("click",(e)=>{
-      e.preventDefault()
-      let goosignUpUrl = "https://goomtaxibackendapi.herokuapp.com/api/v1" + '/request/gmail/auth'
+  upgooSign() {
+    document.getElementById('goosign').addEventListener('click', e => {
+      e.preventDefault();
+      let goosignUpUrl = 'https://goomtaxibackendapi.herokuapp.com/api/v1' + '/request/gmail/auth';
 
       fetch(goosignUpUrl, {
         method: 'GET',
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
         mode: 'cors',
-       
       })
         .then(response => response.json())
-        .then(data=>{
-          alert(data)
-        })
-      
-    })
-
+        .then(data => {
+          alert(data);
+        });
+    });
   }
-
-
-
-
-
-
-
-
-
 
   authorize(event) {
     event.preventDefault();
     ApiBot.authorizeUser();
   }
 
-  isLoggedIn(){
-    let user ;
+  isLoggedIn() {
+    let user;
     // if(JSON.parse(localStorage.getItem('userToken'))){
     //    user = JSON.parse(localStorage.getItem('userToken'));
     //    if(user){
@@ -94,7 +74,6 @@ class WebsiteSignUp {
     //    }
     // }
   }
-
 }
 
 export default WebsiteSignUp;

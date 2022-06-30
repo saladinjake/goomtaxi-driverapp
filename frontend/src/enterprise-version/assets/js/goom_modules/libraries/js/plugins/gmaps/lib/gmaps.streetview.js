@@ -21,8 +21,16 @@ GMaps.createPanorama = function(options) {
   delete options.lat;
   delete options.lng;
 
-  var streetview_events = ['closeclick', 'links_changed', 'pano_changed', 'position_changed', 'pov_changed', 'resize', 'visible_changed'],
-      streetview_options = extend_object({visible : true}, options);
+  var streetview_events = [
+      'closeclick',
+      'links_changed',
+      'pano_changed',
+      'position_changed',
+      'pov_changed',
+      'resize',
+      'visible_changed',
+    ],
+    streetview_options = extend_object({ visible: true }, options);
 
   for (var i = 0; i < streetview_events.length; i++) {
     delete streetview_options[streetview_events[i]];
@@ -33,7 +41,7 @@ GMaps.createPanorama = function(options) {
   for (var i = 0; i < streetview_events.length; i++) {
     (function(object, name) {
       if (options[name]) {
-        google.maps.event.addListener(object, name, function(){
+        google.maps.event.addListener(object, name, function() {
           options[name].apply(this);
         });
       }

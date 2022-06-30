@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-
-
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
 class Collection extends React.Component {
   render() {
@@ -11,15 +9,13 @@ class Collection extends React.Component {
         onClick={() => this.props.setSelected(this.props.name)}
       >
         <div className="collection-name">
-          {this.props.name}{" "}
+          {this.props.name}{' '}
           {this.props.selected === this.props.name && (
             <span className="collection-selected-badge">SELECTED</span>
           )}
         </div>
         <div className="collection-description">{this.props.description}</div>
-        <div className="collection-description">
-          {this.props.numQuestions} questions
-        </div>
+        <div className="collection-description">{this.props.numQuestions} questions</div>
       </div>
     );
   }

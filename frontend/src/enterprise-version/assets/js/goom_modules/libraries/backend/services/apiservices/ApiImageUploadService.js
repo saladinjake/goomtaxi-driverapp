@@ -9,7 +9,6 @@ class ApiImageUploadService {
   constructor() {}
 
   static uploadImage(event) {
-    
     const file = event.target.files[0];
     let files = event.target.files;
     const formData = new FormData();
@@ -18,18 +17,18 @@ class ApiImageUploadService {
     let allFilesArray = [...files];
     formData.append('upload_preset', 'yftnq9xd');
 
-    console.log(activeUrl + '/image/profile/avater')
+    console.log(activeUrl + '/image/profile/avater');
     // eslint-disable-next-line no-undef
     fetch(activeUrl + '/image/profile/avater', {
       method: 'POST',
-        headers: {
+      headers: {
         // 'Access-Control-Allow-Headers': 'x-access-token',
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         //'x-access-token': user.token,
       },
       mode: 'cors',
-    
+
       body: formData,
     })
       .then(response => response.json())
@@ -52,7 +51,7 @@ class ApiImageUploadService {
   static previewFile(file) {
     let reader = new FileReader();
     reader.readAsDataURL(file);
-      let profile = document.getElementById('avatar-img2');
+    let profile = document.getElementById('avatar-img2');
     let displayImages = document.getElementById('displayImages');
     reader.onloadend = function() {
       let img = document.createElement('img');
@@ -62,7 +61,7 @@ class ApiImageUploadService {
       // img.width="200px"
       // img.height="200px"
       //displayImages.appendChild(img)
-     
+
       //console.log('Here you go >> ' + file.name.replace(/\\/g, ''));
 
       displayImages.innerHTML += `<li class="image-list" style="float:left; list-style-type:none;">
@@ -72,7 +71,7 @@ class ApiImageUploadService {
       profile.
 </li>`;
 
-      profile.src=reader.result;
+      profile.src = reader.result;
     };
   }
 }

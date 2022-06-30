@@ -1,6 +1,6 @@
-class PwaGeolocation{
-	constructor(){}
-	attachEvents(){}
+class PwaGeolocation {
+  constructor() {}
+  attachEvents() {}
 }
 
 export default PwaGeolocation;

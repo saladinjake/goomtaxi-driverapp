@@ -8,8 +8,7 @@ import ApiMediaUploadService from './ApiMediaUploadService';
 
 import $ from 'jquery';
 
-alertify.set('notifier','position', 'top-left');
-   
+alertify.set('notifier', 'position', 'top-left');
 
 let activeUrl = getOnlineUrlConnection();
 let baseUrl = getOnlineUrlConnection();
@@ -30,66 +29,61 @@ class ApiSaveOneRecord {
     const category = user_typeSelect.options[user_typeSelect.selectedIndex].text;
     //const videoInput = document.querySelectorAll('.video-uploads');
     const locationField = document.getElementById('findme');
-    let location ='';
+    let location = '';
 
-    var  imageInput = document.getElementById('filestyle-6').value;
-     var fullPath = imageInput;
-     var filename = fullPath.replace(/^.*[\\\/]/, '');
-     imageInput = filename;
+    var imageInput = document.getElementById('filestyle-6').value;
+    var fullPath = imageInput;
+    var filename = fullPath.replace(/^.*[\\\/]/, '');
+    imageInput = filename;
 
-   
-    
-   
-     
-        console.log('getting geolocation');
-        if (!('geolocation' in navigator)) {
-          return;
-        }
-        navigator.geolocation.getCurrentPosition(
-          function(position) {
-            location = `${position.coords.latitude}, ${position.coords.longitude}`;
-            console.log(location);
-            locationField.value = location;
-          },
-          function(err) {
-            console.log(err);
-            // alert("Couldn't fetch location!");
-            location = location;
-          },
-          { timeout: 7000 },
-        );
-     
-   
+    console.log('getting geolocation');
+    if (!('geolocation' in navigator)) {
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        location = `${position.coords.latitude}, ${position.coords.longitude}`;
+        console.log(location);
+        locationField.value = location;
+      },
+      function(err) {
+        console.log(err);
+        // alert("Couldn't fetch location!");
+        location = location;
+      },
+      { timeout: 7000 },
+    );
 
     let postUrl;
-    
+
     postUrl = activeUrl + '/feedback';
-    
 
-    console.log(activeUrl)
+    console.log(activeUrl);
 
-    console.log(postUrl)
+    console.log(postUrl);
 
     const reportImages = imageInput;
     const reportVideos = ['a.mp4'];
 
     if (!(comment && comment.trim().length)) {
       // return MessageBoard.displayMsg('Please enter a comment');
-      var notification = alertify.notify('Comment field required.', 'success', 5, function(){  console.log('dismissed'); });
-
+      var notification = alertify.notify('Comment field required.', 'success', 5, function() {
+        console.log('dismissed');
+      });
     }
 
-
-    if (!(subject)) {
-      var notification = alertify.notify('Subject field required.', 'success', 5, function(){  console.log('dismissed'); });
+    if (!subject) {
+      var notification = alertify.notify('Subject field required.', 'success', 5, function() {
+        console.log('dismissed');
+      });
 
       //return MessageBoard.displayMsg('Please enter a subject');
     }
 
-    //location = locationField.value || 
+    //location = locationField.value ||
 
     // if (locationField.value) {
-      
+
     //   location = locationField.value;
     // } else {
     //   return MessageBoard.displayMsg('Please enter a location');
@@ -113,8 +107,6 @@ class ApiSaveOneRecord {
     const email = user.user.email;
     const phone_number = user.user.phoneNumber;
 
-
-
     const prePostData = {
       comment,
       reportType,
@@ -124,16 +116,18 @@ class ApiSaveOneRecord {
       status: 'Pending',
       user_id: user.user.account_num,
       category,
-      ticket_id: "CMT-TKT-"+ new Date()+ user.user.account_num,
+      ticket_id: 'CMT-TKT-' + new Date() + user.user.account_num,
       username,
       email,
       phone_number,
-      response:'Not Yet Responded'
+      response: 'Not Yet Responded',
     };
 
     if (!prePostData.comment) {
       console.log(prePostData.comment);
-      var notification = alertify.notify('Error in posting record.', 'success', 5, function(){  console.log('dismissed'); });
+      var notification = alertify.notify('Error in posting record.', 'success', 5, function() {
+        console.log('dismissed');
+      });
 
       //return MessageBoard.displayMsg('Error in posting record');
     }
@@ -142,7 +136,7 @@ class ApiSaveOneRecord {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Headers': 'x-access-token',
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         'x-access-token': user.token,
       },
@@ -153,17 +147,24 @@ class ApiSaveOneRecord {
       .then(data => {
         if (data.status === 201) {
           //MessageBoard.displayMsg('Form submitted succesfully');
-          var notification = alertify.notify('succesfully created ticket.', 'success', 5, function(){  console.log('dismissed'); });
+          var notification = alertify.notify(
+            'succesfully created ticket.',
+            'success',
+            5,
+            function() {
+              console.log('dismissed');
+            },
+          );
 
-       
           localStorage.setItem('urlType', postUrl);
-          window.location.replace("./submitted-ticket")
+          window.location.replace('./submitted-ticket');
         } else if (data.status === 401 || data.status === 403) {
           window.location.href = './';
         } else {
           //MessageBoard.displayMsg(data.error);
-          var notification = alertify.notify(data.error, 'error', 5, function(){  console.log('dismissed'); });
-
+          var notification = alertify.notify(data.error, 'error', 5, function() {
+            console.log('dismissed');
+          });
         }
       })
       .catch(error => {

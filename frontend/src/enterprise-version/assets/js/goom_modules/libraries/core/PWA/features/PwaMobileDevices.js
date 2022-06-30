@@ -1,6 +1,6 @@
-class PwaMobileDevices{
-	constructor(){}
-	attachEvents(){}
+class PwaMobileDevices {
+  constructor() {}
+  attachEvents() {}
 }
 
 export default PwaMobileDevices;

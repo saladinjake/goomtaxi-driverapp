@@ -1,8 +1,7 @@
 'use strict';
 import ItineraryHistoryModel from '../models/ItineraryHistoryModel';
 class WebsiteItineraryHistory {
-  constructor() {   
-  }
+  constructor() {}
 
   attachEvents() {
     if (document.getElementById('itinerary-history')) {
@@ -11,12 +10,8 @@ class WebsiteItineraryHistory {
   }
 
   indexPageController() {
-
-   
-   
-    return ItineraryHistoryModel.itineraryHistory()
+    return ItineraryHistoryModel.itineraryHistory();
   }
-
 }
 
 export default WebsiteItineraryHistory;

@@ -10,14 +10,12 @@ class PlanCategoryModel {
     return ApiBotServices.fetchDataCoperatePlans('/coperate/plans/view');
   }
 
-
-  static updateItem(record){
-    return ApiBotServices.updateItem(record)
+  static updateItem(record) {
+    return ApiBotServices.updateItem(record);
   }
 
-  static deleteItem(record){
-    return ApiBotServices.deleteItem(record)
+  static deleteItem(record) {
+    return ApiBotServices.deleteItem(record);
   }
-
 }
 export default PlanCategoryModel;

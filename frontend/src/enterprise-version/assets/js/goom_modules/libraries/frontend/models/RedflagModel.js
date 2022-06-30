@@ -2,8 +2,8 @@
 import InterventionModel from './InterventionModel';
 import ApiBotServices from '../../backend/services/postgres_api_bot';
 class RedflagModel extends InterventionModel {
-  constructor(){
-  	super()
+  constructor() {
+    super();
   }
   static getAllData() {
     return ApiBotServices.fetchDataRedFlags('/red-flags');

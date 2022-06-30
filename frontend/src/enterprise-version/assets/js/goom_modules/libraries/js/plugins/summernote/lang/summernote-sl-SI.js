@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'sl-SI': {
       font: {
@@ -11,7 +11,7 @@
         strikethrough: 'Prečrtano',
         subscript: 'Podpisano',
         superscript: 'Nadpisano',
-        size: 'Velikost pisave'
+        size: 'Velikost pisave',
       },
       image: {
         image: 'Slika',
@@ -25,14 +25,14 @@
         dragImageHere: 'Sem povlecite sliko',
         selectFromFiles: 'Izberi sliko za nalaganje',
         url: 'URL naslov slike',
-        remove: 'Odstrani sliko'
+        remove: 'Odstrani sliko',
       },
       video: {
         video: 'Video',
         videoLink: 'Video povezava',
         insert: 'Vstavi video',
         url: 'Povezava do videa',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ali Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ali Youku)',
       },
       link: {
         link: 'Povezava',
@@ -41,13 +41,13 @@
         edit: 'Uredi',
         textToDisplay: 'Prikazano besedilo',
         url: 'Povezava',
-        openInNewWindow: 'Odpri v novem oknu'
+        openInNewWindow: 'Odpri v novem oknu',
       },
       table: {
-        table: 'Tabela'
+        table: 'Tabela',
       },
       hr: {
-        insert: 'Vstavi horizontalno črto'
+        insert: 'Vstavi horizontalno črto',
       },
       style: {
         style: 'Slogi',
@@ -59,16 +59,16 @@
         h3: 'Naslov 3',
         h4: 'Naslov 4',
         h5: 'Naslov 5',
-        h6: 'Naslov 6'
+        h6: 'Naslov 6',
       },
       lists: {
         unordered: 'Označen seznam',
-        ordered: 'Oštevilčen seznam'
+        ordered: 'Oštevilčen seznam',
       },
       options: {
         help: 'Pomoč',
         fullscreen: 'Celozaslonski način',
-        codeview: 'Pregled HTML kode'
+        codeview: 'Pregled HTML kode',
       },
       paragraph: {
         paragraph: 'Slogi odstavka',
@@ -77,7 +77,7 @@
         left: 'Leva poravnava',
         center: 'Desna poravnava',
         right: 'Sredinska poravnava',
-        justify: 'Obojestranska poravnava'
+        justify: 'Obojestranska poravnava',
       },
       color: {
         recent: 'Uporabi zadnjo barvo',
@@ -87,7 +87,7 @@
         transparent: 'Brez barve',
         setTransparent: 'Brez barve',
         reset: 'Ponastavi',
-        resetToDefault: 'Ponastavi na privzeto'
+        resetToDefault: 'Ponastavi na privzeto',
       },
       shortcut: {
         shortcuts: 'Bljižnice',
@@ -95,12 +95,12 @@
         textFormatting: 'Oblikovanje besedila',
         action: 'Dejanja',
         paragraphFormatting: 'Oblikovanje odstavka',
-        documentStyle: 'Oblikovanje naslova'
+        documentStyle: 'Oblikovanje naslova',
       },
       history: {
         undo: 'Razveljavi',
-        redo: 'Uveljavi'
-      }
-    }
+        redo: 'Uveljavi',
+      },
+    },
   });
 })(jQuery);

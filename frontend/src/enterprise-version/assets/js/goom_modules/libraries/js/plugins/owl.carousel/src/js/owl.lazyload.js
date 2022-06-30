@@ -4,131 +4,140 @@
  * @author Bartosz Wojciechowski
  * @license The MIT License (MIT)
  */
-;(function($, window, document, undefined) {
+(function($, window, document, undefined) {
+  /**
+   * Creates the lazy plugin.
+   * @class The Lazy Plugin
+   * @param {Owl} carousel - The Owl Carousel
+   */
+  var Lazy = function(carousel) {
+    /**
+     * Reference to the core.
+     * @protected
+     * @type {Owl}
+     */
+    this._core = carousel;
 
-	/**
-	 * Creates the lazy plugin.
-	 * @class The Lazy Plugin
-	 * @param {Owl} carousel - The Owl Carousel
-	 */
-	var Lazy = function(carousel) {
+    /**
+     * Already loaded items.
+     * @protected
+     * @type {Array.<jQuery>}
+     */
+    this._loaded = [];
 
-		/**
-		 * Reference to the core.
-		 * @protected
-		 * @type {Owl}
-		 */
-		this._core = carousel;
+    /**
+     * Event handlers.
+     * @protected
+     * @type {Object}
+     */
+    this._handlers = {
+      'initialized.owl.carousel change.owl.carousel': $.proxy(function(e) {
+        if (!e.namespace) {
+          return;
+        }
 
-		/**
-		 * Already loaded items.
-		 * @protected
-		 * @type {Array.<jQuery>}
-		 */
-		this._loaded = [];
+        if (!this._core.settings || !this._core.settings.lazyLoad) {
+          return;
+        }
 
-		/**
-		 * Event handlers.
-		 * @protected
-		 * @type {Object}
-		 */
-		this._handlers = {
-			'initialized.owl.carousel change.owl.carousel': $.proxy(function(e) {
-				if (!e.namespace) {
-					return;
-				}
+        if ((e.property && e.property.name == 'position') || e.type == 'initialized') {
+          var settings = this._core.settings,
+            n = (settings.center && Math.ceil(settings.items / 2)) || settings.items,
+            i = (settings.center && n * -1) || 0,
+            position = ((e.property && e.property.value) || this._core.current()) + i,
+            clones = this._core.clones().length,
+            load = $.proxy(function(i, v) {
+              this.load(v);
+            }, this);
 
-				if (!this._core.settings || !this._core.settings.lazyLoad) {
-					return;
-				}
+          while (i++ < n) {
+            this.load(clones / 2 + this._core.relative(position));
+            clones && $.each(this._core.clones(this._core.relative(position)), load);
+            position++;
+          }
+        }
+      }, this),
+    };
 
-				if ((e.property && e.property.name == 'position') || e.type == 'initialized') {
-					var settings = this._core.settings,
-						n = (settings.center && Math.ceil(settings.items / 2) || settings.items),
-						i = ((settings.center && n * -1) || 0),
-						position = ((e.property && e.property.value) || this._core.current()) + i,
-						clones = this._core.clones().length,
-						load = $.proxy(function(i, v) { this.load(v) }, this);
+    // set the default options
+    this._core.options = $.extend({}, Lazy.Defaults, this._core.options);
 
-					while (i++ < n) {
-						this.load(clones / 2 + this._core.relative(position));
-						clones && $.each(this._core.clones(this._core.relative(position)), load);
-						position++;
-					}
-				}
-			}, this)
-		};
+    // register event handler
+    this._core.$element.on(this._handlers);
+  };
 
-		// set the default options
-		this._core.options = $.extend({}, Lazy.Defaults, this._core.options);
+  /**
+   * Default options.
+   * @public
+   */
+  Lazy.Defaults = {
+    lazyLoad: false,
+  };
 
-		// register event handler
-		this._core.$element.on(this._handlers);
-	}
+  /**
+   * Loads all resources of an item at the specified position.
+   * @param {Number} position - The absolute position of the item.
+   * @protected
+   */
+  Lazy.prototype.load = function(position) {
+    var $item = this._core.$stage.children().eq(position),
+      $elements = $item && $item.find('.owl-lazy');
 
-	/**
-	 * Default options.
-	 * @public
-	 */
-	Lazy.Defaults = {
-		lazyLoad: false
-	}
+    if (!$elements || $.inArray($item.get(0), this._loaded) > -1) {
+      return;
+    }
 
-	/**
-	 * Loads all resources of an item at the specified position.
-	 * @param {Number} position - The absolute position of the item.
-	 * @protected
-	 */
-	Lazy.prototype.load = function(position) {
-		var $item = this._core.$stage.children().eq(position),
-			$elements = $item && $item.find('.owl-lazy');
+    $elements.each(
+      $.proxy(function(index, element) {
+        var $element = $(element),
+          image,
+          url =
+            (window.devicePixelRatio > 1 && $element.attr('data-src-retina')) ||
+            $element.attr('data-src');
 
-		if (!$elements || $.inArray($item.get(0), this._loaded) > -1) {
-			return;
-		}
+        this._core.trigger('load', { element: $element, url: url }, 'lazy');
 
-		$elements.each($.proxy(function(index, element) {
-			var $element = $(element), image,
-				url = (window.devicePixelRatio > 1 && $element.attr('data-src-retina')) || $element.attr('data-src');
+        if ($element.is('img')) {
+          $element
+            .one(
+              'load.owl.lazy',
+              $.proxy(function() {
+                $element.css('opacity', 1);
+                this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
+              }, this),
+            )
+            .attr('src', url);
+        } else {
+          image = new Image();
+          image.onload = $.proxy(function() {
+            $element.css({
+              'background-image': 'url(' + url + ')',
+              opacity: '1',
+            });
+            this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
+          }, this);
+          image.src = url;
+        }
+      }, this),
+    );
 
-			this._core.trigger('load', { element: $element, url: url }, 'lazy');
+    this._loaded.push($item.get(0));
+  };
 
-			if ($element.is('img')) {
-				$element.one('load.owl.lazy', $.proxy(function() {
-					$element.css('opacity', 1);
-					this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
-				}, this)).attr('src', url);
-			} else {
-				image = new Image();
-				image.onload = $.proxy(function() {
-					$element.css({
-						'background-image': 'url(' + url + ')',
-						'opacity': '1'
-					});
-					this._core.trigger('loaded', { element: $element, url: url }, 'lazy');
-				}, this);
-				image.src = url;
-			}
-		}, this));
+  /**
+   * Destroys the plugin.
+   * @public
+   */
+  Lazy.prototype.destroy = function() {
+    var handler, property;
 
-		this._loaded.push($item.get(0));
-	}
+    for (handler in this.handlers) {
+      this._core.$element.off(handler, this.handlers[handler]);
+    }
+    for (property in Object.getOwnPropertyNames(this)) {
+      typeof this[property] != 'function' && (this[property] = null);
+    }
+  };
 
-	/**
-	 * Destroys the plugin.
-	 * @public
-	 */
-	Lazy.prototype.destroy = function() {
-		var handler, property;
-
-		for (handler in this.handlers) {
-			this._core.$element.off(handler, this.handlers[handler]);
-		}
-		for (property in Object.getOwnPropertyNames(this)) {
-			typeof this[property] != 'function' && (this[property] = null);
-		}
-	};
-
-	$.fn.owlCarousel.Constructor.Plugins.Lazy = Lazy;
-
+  $.fn.owlCarousel.Constructor.Plugins.Lazy = Lazy;
 })(window.Zepto || window.jQuery, window, document);

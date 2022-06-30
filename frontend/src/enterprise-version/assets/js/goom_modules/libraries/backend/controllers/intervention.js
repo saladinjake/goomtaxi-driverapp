@@ -9,7 +9,7 @@ class IReporterWebsiteAdminIntervention extends InterventionController {
   attachEvents() {
     if (document.getElementById('admin')) {
       this.indexPageController();
-      
+
       this.singleItemPageController();
       this.deleteRecordPageController();
       this.editLocationRecordPageController();
@@ -28,31 +28,30 @@ class IReporterWebsiteAdminIntervention extends InterventionController {
     return View.Index(dataPromise);
   }
 
-  saveNewRecordPageController(){
-    return super.saveNewRecordPageController()
+  saveNewRecordPageController() {
+    return super.saveNewRecordPageController();
   }
 
-  singleItemPageController(){
-    return super.singleItemPageController()
+  singleItemPageController() {
+    return super.singleItemPageController();
   }
 
   deleteRecordPageController() {
-    return super.deleteRecordPageController() 
+    return super.deleteRecordPageController();
   }
 
-   editLocationRecordPageController() {
-     return super.editLocationRecordPageController() 
-   }
+  editLocationRecordPageController() {
+    return super.editLocationRecordPageController();
+  }
 
-   editCommentRecordPageController(){
-     return super.editCommentRecordPageController()
-   }
+  editCommentRecordPageController() {
+    return super.editCommentRecordPageController();
+  }
 
-    editStatusRecordPageController() {
-      return super.editStatusRecordPageController() 
-    }
+  editStatusRecordPageController() {
+    return super.editStatusRecordPageController();
+  }
 
-  
   attachPreviewIconToEventToShowContent(previewIconInt) {
     let that = this;
     previewIconInt.onclick = function() {

@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'es-EU': {
       font: {
@@ -9,7 +9,7 @@
         height: 'Lerro altuera',
         name: 'Tipografia',
         strikethrough: 'Marratua',
-        size: 'Letren neurria'
+        size: 'Letren neurria',
       },
       image: {
         image: 'Irudia',
@@ -22,14 +22,14 @@
         floatNone: 'Kokapenik ez ezarri',
         dragImageHere: 'Irudi bat ezarri hemen',
         selectFromFiles: 'Zure fitxategi bat aukeratu',
-        url: 'Irudiaren URL helbidea'
+        url: 'Irudiaren URL helbidea',
       },
       video: {
         video: 'Bideoa',
         videoLink: 'Bideorako esteka',
         insert: 'Bideo berri bat txertatu',
         url: 'Bideoaren URL helbidea',
-        providers: '(YouTube, Vimeo, Vine, Instagram edo DailyMotion)'
+        providers: '(YouTube, Vimeo, Vine, Instagram edo DailyMotion)',
       },
       link: {
         link: 'Esteka',
@@ -38,13 +38,13 @@
         edit: 'Editatu',
         textToDisplay: 'Estekaren testua',
         url: 'Estekaren URL helbidea',
-        openInNewWindow: 'Leiho berri batean ireki'
+        openInNewWindow: 'Leiho berri batean ireki',
       },
       table: {
-        table: 'Taula' //Tabla
+        table: 'Taula', //Tabla
       },
       hr: {
-        insert: 'Marra horizontala txertatu' //Insertar línea horizontal
+        insert: 'Marra horizontala txertatu', //Insertar línea horizontal
       },
       style: {
         style: 'Estiloa',
@@ -56,16 +56,16 @@
         h3: '3. izenburua',
         h4: '4. izenburua',
         h5: '5. izenburua',
-        h6: '6. izenburua'
+        h6: '6. izenburua',
       },
       lists: {
         unordered: 'Ordenatu gabeko zerrenda',
-        ordered: 'Zerrenda ordenatua'
+        ordered: 'Zerrenda ordenatua',
       },
       options: {
         help: 'Laguntza',
         fullscreen: 'Pantaila osoa',
-        codeview: 'Kodea ikusi'
+        codeview: 'Kodea ikusi',
       },
       paragraph: {
         paragraph: 'Paragrafoa',
@@ -74,7 +74,7 @@
         left: 'Ezkerrean kokatu',
         center: 'Erdian kokatu',
         right: 'Eskuinean kokatu',
-        justify: 'Justifikatu'
+        justify: 'Justifikatu',
       },
       color: {
         recent: 'Azken kolorea',
@@ -84,7 +84,7 @@
         transparent: 'Gardena',
         setTransparent: 'Gardendu',
         reset: 'Lehengoratu',
-        resetToDefault: 'Berrezarri lehenetsia'
+        resetToDefault: 'Berrezarri lehenetsia',
       },
       shortcut: {
         shortcuts: 'Lasterbideak',
@@ -92,12 +92,12 @@
         textFormatting: 'Testuaren formatua',
         action: 'Ekintza',
         paragraphFormatting: 'Paragrafoaren formatua',
-        documentStyle: 'Dokumentuaren estiloa'
+        documentStyle: 'Dokumentuaren estiloa',
       },
       history: {
         undo: 'Desegin',
-        redo: 'Berregin'
-      }
-    }
+        redo: 'Berregin',
+      },
+    },
   });
 })(jQuery);

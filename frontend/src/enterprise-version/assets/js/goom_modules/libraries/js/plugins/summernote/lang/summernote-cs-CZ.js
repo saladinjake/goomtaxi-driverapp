@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'cs-CZ': {
       font: {
@@ -8,7 +8,7 @@
         clear: 'Odstranit styl písma',
         height: 'Výška řádku',
         strikethrough: 'Přeškrtnuté',
-        size: 'Velikost písma'
+        size: 'Velikost písma',
       },
       image: {
         image: 'Obrázek',
@@ -21,14 +21,14 @@
         floatNone: 'Neobtékat textem',
         dragImageHere: 'Přetáhnout sem obrázek',
         selectFromFiles: 'Vybrat soubor',
-        url: 'URL obrázku'
+        url: 'URL obrázku',
       },
       video: {
         video: 'Video',
         videoLink: 'Odkaz videa',
         insert: 'Vložit video',
         url: 'URL videa?',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion nebo Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion nebo Youku)',
       },
       link: {
         link: 'Odkaz',
@@ -37,13 +37,13 @@
         edit: 'Upravit',
         textToDisplay: 'Zobrazovaný text',
         url: 'Na jaké URL má tento odkaz vést?',
-        openInNewWindow: 'Otevřít v novém okně'
+        openInNewWindow: 'Otevřít v novém okně',
       },
       table: {
-        table: 'Tabulka'
+        table: 'Tabulka',
       },
       hr: {
-        insert: 'Vložit vodorovnou čáru'
+        insert: 'Vložit vodorovnou čáru',
       },
       style: {
         style: 'Styl',
@@ -55,16 +55,16 @@
         h3: 'Nadpis 3',
         h4: 'Nadpis 4',
         h5: 'Nadpis 5',
-        h6: 'Nadpis 6'
+        h6: 'Nadpis 6',
       },
       lists: {
         unordered: 'Odrážkový seznam',
-        ordered: 'Číselný seznam'
+        ordered: 'Číselný seznam',
       },
       options: {
         help: 'Nápověda',
         fullscreen: 'Celá obrazovka',
-        codeview: 'HTML kód'
+        codeview: 'HTML kód',
       },
       paragraph: {
         paragraph: 'Odstavec',
@@ -73,7 +73,7 @@
         left: 'Zarovnat doleva',
         center: 'Zarovnat na střed',
         right: 'Zarovnat doprava',
-        justify: 'Zarovnat oboustranně'
+        justify: 'Zarovnat oboustranně',
       },
       color: {
         recent: 'Aktuální barva',
@@ -83,7 +83,7 @@
         transparent: 'Průhlednost',
         setTransparent: 'Nastavit průhlednost',
         reset: 'Obnovit',
-        resetToDefault: 'Obnovit výchozí'
+        resetToDefault: 'Obnovit výchozí',
       },
       shortcut: {
         shortcuts: 'Klávesové zkratky',
@@ -91,13 +91,12 @@
         textFormatting: 'Formátování textu',
         action: 'Akce',
         paragraphFormatting: 'Formátování odstavce',
-        documentStyle: 'Styl dokumentu'
+        documentStyle: 'Styl dokumentu',
       },
       history: {
         undo: 'Krok vzad',
-        redo: 'Krok vpřed'
-      }
-
-    }
+        redo: 'Krok vpřed',
+      },
+    },
   });
 })(jQuery);

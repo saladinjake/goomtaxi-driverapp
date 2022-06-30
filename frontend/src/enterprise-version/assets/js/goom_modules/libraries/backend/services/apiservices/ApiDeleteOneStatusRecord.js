@@ -6,7 +6,6 @@ import MessageBoard from '../../../core/MessageBoard';
 import FetchPromiseApi from './helpers/FetchPromiseApi';
 //import sweet animations and sweet loading effects
 
-
 let activeUrl = getOnlineUrlConnection();
 let baseUrl = getOnlineUrlConnection();
 
@@ -23,18 +22,17 @@ class ApiDeleteOneStatusRecord {
     let linkOfApi;
     const user = JSON.parse(localStorage.getItem('userToken'));
     let activeUrl = getOnlineUrlConnection();
-    
+
     const clickedId = localStorage.getItem('Id');
     const recordType = localStorage.getItem('reportType');
     if (recordType === 'sos') {
       linkOfApi = activeUrl + `/sos/${clickedId}/status`;
     } else if (recordType === 'create-ticket') {
       linkOfApi = activeUrl + `/feedback/${clickedId}/status`;
-    }else if(recordType==='mechanic'){
+    } else if (recordType === 'mechanic') {
       linkOfApi = activeUrl + `/mechanic/${clickedId}/status`;
-    }else if(recordType==='users'){
+    } else if (recordType === 'users') {
       linkOfApi = activeUrl + `/users/${clickedId}`;
-
     }
 
     return fetch(linkOfApi, {
@@ -50,7 +48,7 @@ class ApiDeleteOneStatusRecord {
         if (data.status === 202) {
           const recordOfType = data.data[0].type;
           MessageBoard.displayMsg('Deleted data record');
-         // ApiDeleteOneStatusRecord.redirect(recordOfType);
+          // ApiDeleteOneStatusRecord.redirect(recordOfType);
         } else {
           return MessageBoard.displayMsg('Could not perform delete operation');
         }

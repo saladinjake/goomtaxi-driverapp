@@ -1,8 +1,7 @@
 'use strict';
 
 class AbstractSubject {
-  constructor() {
-    }
+  constructor() {}
 
   static authenticateUser() {}
 
@@ -18,13 +17,9 @@ class AbstractSubject {
   static updateOneLocation() {}
   static updateOneComment() {}
   static updateOneStatus() {}
-
 }
-
-
 
 let ProxyPatternsInit = {
-    AbstractSubject
-}
+  AbstractSubject,
+};
 export default ProxyPatternsInit;
-

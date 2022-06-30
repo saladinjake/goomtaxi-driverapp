@@ -5,12 +5,12 @@ class View extends ViewBuilder {
   constructor() {
     super();
   }
-  static Index(datas,locId) {
+  static Index(datas, locId) {
     return View.buildRecordUI(datas, locId);
   }
 
-  static PaginatedView(data,locId) {
-    return View.paginated(data,locId);
+  static PaginatedView(data, locId) {
+    return View.paginated(data, locId);
   }
 
   static Show(data) {
@@ -43,7 +43,7 @@ class View extends ViewBuilder {
   }
 
   static profilePage(promiseData, callBackSubmitHandler) {
-    View.ShowProfile(promiseData)
+    View.ShowProfile(promiseData);
     return callBackSubmitHandler();
   }
 }

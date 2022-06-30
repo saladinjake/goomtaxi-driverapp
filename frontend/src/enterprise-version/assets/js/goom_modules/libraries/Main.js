@@ -6,23 +6,21 @@ import FrontEndApp from './App';
 
 import BackendApp from './backend/App';
 
-
 // turned off from stand alone and then imported in the react App.js
 
-// this project was initially a js es6 code base , 
+// this project was initially a js es6 code base ,
 //partly transformed to react with vanilla js under the hood
 
 // const loadingAction = () => {
-//   document.onreadystatechange = function() { 
+//   document.onreadystatechange = function() {
 
-            
-//             if (document.readyState !== "complete") { 
+//             if (document.readyState !== "complete") {
 //                 document.querySelector("#gtd").style.visibility = "hidden";
-//                 document.querySelector("#gtd").style.opacity = 0; 
-//                 document.querySelector("#loader").style.visibility = "visible"; 
-//             } else { 
-//                 document.querySelector("#loader").style.display = "none"; 
-//                 document.querySelector("#gtd").style.visibility = "visible"; 
+//                 document.querySelector("#gtd").style.opacity = 0;
+//                 document.querySelector("#loader").style.visibility = "visible";
+//             } else {
+//                 document.querySelector("#loader").style.display = "none";
+//                 document.querySelector("#gtd").style.visibility = "visible";
 //                 document.querySelector("#gtd").style.opacity = 1;
 
 //                 document.body.addEventListener('click', (e) =>{
@@ -31,13 +29,12 @@ import BackendApp from './backend/App';
 
 //                    }
 //                 })
-//             } 
+//             }
 //   }
 
 //  }
 
 //  loadingAction();
-
 
 // window.addEventListener('load', (event) => {
 //   event.preventDefault();
@@ -49,11 +46,3 @@ import BackendApp from './backend/App';
 //     //new BackendApp().run();
 //   }
 // });
-
-
-
-
-
-
-
-

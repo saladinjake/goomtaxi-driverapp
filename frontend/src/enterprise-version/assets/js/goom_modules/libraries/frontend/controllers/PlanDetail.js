@@ -1,8 +1,7 @@
 'use strict';
 import HomeModel from '../models/HomeModel';
 class WebsiteSingleRecord {
-  constructor() {   
-  }
+  constructor() {}
 
   attachEvents() {
     if (document.getElementById('plan-detail')) {
@@ -11,12 +10,8 @@ class WebsiteSingleRecord {
   }
 
   indexPageController() {
-
-   
-   
-    return HomeModel.dashboard()
+    return HomeModel.dashboard();
   }
-
 }
 
 export default WebsiteSingleRecord;

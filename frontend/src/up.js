@@ -1,5 +1,3 @@
-function up(){
-
-}
+function up() {}
 
 export default up;

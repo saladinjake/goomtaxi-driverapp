@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'lt-LT': {
       font: {
@@ -11,7 +11,7 @@
         strikethrough: 'Perbrauktas',
         superscript: 'Viršutinis',
         subscript: 'Indeksas',
-        size: 'Šrifto dydis'
+        size: 'Šrifto dydis',
       },
       image: {
         image: 'Paveikslėlis',
@@ -31,7 +31,7 @@
         maximumFileSize: 'Maskimalus failo dydis',
         maximumFileSizeError: 'Maskimalus failo dydis viršytas!',
         url: 'Paveikslėlio URL adresas',
-        remove: 'Ištrinti paveikslėlį'
+        remove: 'Ištrinti paveikslėlį',
       },
       link: {
         link: 'Nuoroda',
@@ -40,13 +40,13 @@
         edit: 'Redaguoti',
         textToDisplay: 'Rodomas tekstas',
         url: 'Koks URL adresas yra susietas?',
-        openInNewWindow: 'Atidaryti naujame lange'
+        openInNewWindow: 'Atidaryti naujame lange',
       },
       table: {
-        table: 'Lentelė'
+        table: 'Lentelė',
       },
       hr: {
-        insert: 'Įterpti horizontalią liniją'
+        insert: 'Įterpti horizontalią liniją',
       },
       style: {
         style: 'Stilius',
@@ -58,16 +58,16 @@
         h3: 'Antraštė 3',
         h4: 'Antraštė 4',
         h5: 'Antraštė 5',
-        h6: 'Antraštė 6'
+        h6: 'Antraštė 6',
       },
       lists: {
         unordered: 'Suženklintasis sąrašas',
-        ordered: 'Sunumeruotas sąrašas'
+        ordered: 'Sunumeruotas sąrašas',
       },
       options: {
         help: 'Pagalba',
         fullscreen: 'Viso ekrano režimas',
-        codeview: 'HTML kodo peržiūra'
+        codeview: 'HTML kodo peržiūra',
       },
       paragraph: {
         paragraph: 'Pastraipa',
@@ -76,7 +76,7 @@
         left: 'Kairinė lygiuotė',
         center: 'Centrinė lygiuotė',
         right: 'Dešininė lygiuotė',
-        justify: 'Abipusis išlyginimas'
+        justify: 'Abipusis išlyginimas',
       },
       color: {
         recent: 'Paskutinė naudota spalva',
@@ -86,7 +86,7 @@
         transparent: 'Permatoma',
         setTransparent: 'Nustatyti skaidrumo intensyvumą',
         reset: 'Atkurti',
-        resetToDefault: 'Atstatyti numatytąją spalvą'
+        resetToDefault: 'Atstatyti numatytąją spalvą',
       },
       shortcut: {
         shortcuts: 'Spartieji klavišai',
@@ -95,13 +95,12 @@
         action: 'Veiksmas',
         paragraphFormatting: 'Pastraipos formatavimas',
         documentStyle: 'Dokumento stilius',
-        extraKeys: 'Papildomi klavišų deriniai'
+        extraKeys: 'Papildomi klavišų deriniai',
       },
       history: {
         undo: 'Anuliuoti veiksmą',
-        redo: 'Perdaryti veiksmą'
-      }
-
-    }
+        redo: 'Perdaryti veiksmą',
+      },
+    },
   });
 })(jQuery);

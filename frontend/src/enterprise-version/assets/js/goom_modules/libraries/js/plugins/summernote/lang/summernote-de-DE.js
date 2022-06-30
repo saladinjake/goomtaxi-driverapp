@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'de-DE': {
       font: {
@@ -8,7 +8,7 @@
         clear: 'Zurücksetzen',
         height: 'Zeilenhöhe',
         strikethrough: 'Durchgestrichen',
-        size: 'Schriftgröße'
+        size: 'Schriftgröße',
       },
       image: {
         image: 'Grafik',
@@ -28,14 +28,14 @@
         maximumFileSize: 'Maximale Dateigröße',
         maximumFileSizeError: 'Maximale Dateigröße überschritten',
         url: 'Grafik URL',
-        remove: 'Grafik entfernen'
+        remove: 'Grafik entfernen',
       },
       video: {
         video: 'Video',
         videoLink: 'Video Link',
         insert: 'Video einfügen',
         url: 'Video URL?',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion oder Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion oder Youku)',
       },
       link: {
         link: 'Link',
@@ -44,13 +44,13 @@
         edit: 'Editieren',
         textToDisplay: 'Anzeigetext',
         url: 'Ziel des Links?',
-        openInNewWindow: 'In einem neuen Fenster öffnen'
+        openInNewWindow: 'In einem neuen Fenster öffnen',
       },
       table: {
-        table: 'Tabelle'
+        table: 'Tabelle',
       },
       hr: {
-        insert: 'Eine horizontale Linie einfügen'
+        insert: 'Eine horizontale Linie einfügen',
       },
       style: {
         style: 'Stil',
@@ -62,16 +62,16 @@
         h3: 'Überschrift 3',
         h4: 'Überschrift 4',
         h5: 'Überschrift 5',
-        h6: 'Überschrift 6'
+        h6: 'Überschrift 6',
       },
       lists: {
         unordered: 'Aufzählung',
-        ordered: 'Nummerierung'
+        ordered: 'Nummerierung',
       },
       options: {
         help: 'Hilfe',
         fullscreen: 'Vollbild',
-        codeview: 'HTML-Code anzeigen'
+        codeview: 'HTML-Code anzeigen',
       },
       paragraph: {
         paragraph: 'Absatz',
@@ -80,7 +80,7 @@
         left: 'Links ausrichten',
         center: 'Zentriert ausrichten',
         right: 'Rechts ausrichten',
-        justify: 'Blocksatz'
+        justify: 'Blocksatz',
       },
       color: {
         recent: 'Letzte Farbe',
@@ -90,7 +90,7 @@
         transparent: 'Transparenz',
         setTransparent: 'Transparenz setzen',
         reset: 'Zurücksetzen',
-        resetToDefault: 'Auf Standard zurücksetzen'
+        resetToDefault: 'Auf Standard zurücksetzen',
       },
       shortcut: {
         shortcuts: 'Tastenkürzel',
@@ -98,13 +98,12 @@
         textFormatting: 'Textformatierung',
         action: 'Aktion',
         paragraphFormatting: 'Absatzformatierung',
-        documentStyle: 'Dokumentenstil'
+        documentStyle: 'Dokumentenstil',
       },
       history: {
         undo: 'Rückgängig',
-        redo: 'Wiederholen'
-      }
-
-    }
+        redo: 'Wiederholen',
+      },
+    },
   });
 })(jQuery);

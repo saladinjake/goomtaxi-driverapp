@@ -25,40 +25,33 @@ class ApiSaveOneRecord {
     const category = user_typeSelect.options[user_typeSelect.selectedIndex].text;
     //const videoInput = document.querySelectorAll('.video-uploads');
     const locationField = document.getElementById('findme');
-    let location ='';
+    let location = '';
 
-   
-    
-   
-     
-        console.log('getting geolocation');
-        if (!('geolocation' in navigator)) {
-          return;
-        }
-        navigator.geolocation.getCurrentPosition(
-          function(position) {
-            location = `${position.coords.latitude}, ${position.coords.longitude}`;
-            console.log(location);
-            locationField.value = location;
-          },
-          function(err) {
-            console.log(err);
-            alert("Couldn't fetch location!");
-            location = location;
-          },
-          { timeout: 7000 },
-        );
-     
-   
+    console.log('getting geolocation');
+    if (!('geolocation' in navigator)) {
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        location = `${position.coords.latitude}, ${position.coords.longitude}`;
+        console.log(location);
+        locationField.value = location;
+      },
+      function(err) {
+        console.log(err);
+        alert("Couldn't fetch location!");
+        location = location;
+      },
+      { timeout: 7000 },
+    );
 
     let postUrl;
-    
+
     postUrl = activeUrl + '/feedback';
-    
 
-    console.log(activeUrl)
+    console.log(activeUrl);
 
-    console.log(postUrl)
+    console.log(postUrl);
 
     const reportImages = [];
     const reportVideos = ['a.mp4'];
@@ -67,15 +60,13 @@ class ApiSaveOneRecord {
       return MessageBoard.displayMsg('Please enter a comment');
     }
 
-
-    if (!(subject)) {
+    if (!subject) {
       return MessageBoard.displayMsg('Please enter a subject');
     }
 
-    //location = locationField.value || 
+    //location = locationField.value ||
 
     if (locationField.value) {
-      
       location = locationField.value;
     } else {
       return MessageBoard.displayMsg('Please enter a location');
@@ -102,7 +93,7 @@ class ApiSaveOneRecord {
       location,
       status: 'draft',
       user_id: user.user.id,
-      category
+      category,
     };
 
     if (!prePostData.comment) {
@@ -114,7 +105,7 @@ class ApiSaveOneRecord {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Headers': 'x-access-token',
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         'x-access-token': user.token,
       },

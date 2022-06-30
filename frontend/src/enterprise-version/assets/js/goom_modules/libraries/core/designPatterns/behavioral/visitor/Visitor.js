@@ -1,96 +1,90 @@
 'use strict';
 
 class Visitor {
-    constructor() {
-    }
+  constructor() {}
 
-    VisitConcreteElementA (ConcreteElementA){
-    }
+  VisitConcreteElementA(ConcreteElementA) {}
 
-    VisitConcreteElementB (ConcreteElementB){
-    }  
+  VisitConcreteElementB(ConcreteElementB) {}
 }
 
 class ConcreteVisitor1 extends Visitor {
-    constructor() {
-        super()
-        facade.log("ConcreteVisitor1 created");
-    }
+  constructor() {
+    super();
+    facade.log('ConcreteVisitor1 created');
+  }
 
-    VisitConcreteElementA (ConcreteElementA){
-        facade.log("ConcreteVisitor1 visited ConcreteElementA");
-    }
+  VisitConcreteElementA(ConcreteElementA) {
+    facade.log('ConcreteVisitor1 visited ConcreteElementA');
+  }
 
-    VisitConcreteElementB (ConcreteElementB){
-        facade.log("ConcreteVisitor1 visited ConcreteElementB");
-    }  
+  VisitConcreteElementB(ConcreteElementB) {
+    facade.log('ConcreteVisitor1 visited ConcreteElementB');
+  }
 }
 
 class ConcreteVisitor2 extends Visitor {
-    constructor() {
-        super()
-        facade.log("ConcreteVisitor2 created");
-    }
+  constructor() {
+    super();
+    facade.log('ConcreteVisitor2 created');
+  }
 
-    VisitConcreteElementA (ConcreteElementA){
-        facade.log("ConcreteVisitor2 visited ConcreteElementA");
-    }
+  VisitConcreteElementA(ConcreteElementA) {
+    facade.log('ConcreteVisitor2 visited ConcreteElementA');
+  }
 
-    VisitConcreteElementB (ConcreteElementB){
-        facade.log("ConcreteVisitor2 visited ConcreteElementB");
-    }  
+  VisitConcreteElementB(ConcreteElementB) {
+    facade.log('ConcreteVisitor2 visited ConcreteElementB');
+  }
 }
 
 class ObjectStructure {
-    constructor() {
-        facade.log("ObjectStructure created");
-    }
+  constructor() {
+    facade.log('ObjectStructure created');
+  }
 }
 
 class Element {
-    constructor() {
-    }
+  constructor() {}
 
-    Accept (visitor){
-    }
+  Accept(visitor) {}
 }
 
 class ConcreteElementA extends Element {
-    constructor() {
-        super()
-        facade.log("ConcreteElementA created");
-    }
+  constructor() {
+    super();
+    facade.log('ConcreteElementA created');
+  }
 
-    Accept (visitor){
-        visitor.VisitConcreteElementA(this);
-    }
+  Accept(visitor) {
+    visitor.VisitConcreteElementA(this);
+  }
 
-    OperationA (){
-        facade.log("ConcreteElementA OperationA");  
-    }
+  OperationA() {
+    facade.log('ConcreteElementA OperationA');
+  }
 }
 
 class ConcreteElementB extends Element {
-    constructor() {
-        super()
-        facade.log("ConcreteElementB created");
-    }
+  constructor() {
+    super();
+    facade.log('ConcreteElementB created');
+  }
 
-    Accept (visitor){
-        visitor.VisitConcreteElementB(this);
-    }
+  Accept(visitor) {
+    visitor.VisitConcreteElementB(this);
+  }
 
-    OperationB (){
-        facade.log("ConcreteElementB OperationB");  
-    }
+  OperationB() {
+    facade.log('ConcreteElementB OperationB');
+  }
 }
 
-
 function init_Visitor() {
-    let visitor1 = new ConcreteVisitor1();
-    let visitor2 = new ConcreteVisitor2();
-    let elementA = new ConcreteElementA();
-    let elementB = new ConcreteElementB();
-    elementA.Accept(visitor1);
-    elementB.Accept(visitor2);
+  let visitor1 = new ConcreteVisitor1();
+  let visitor2 = new ConcreteVisitor2();
+  let elementA = new ConcreteElementA();
+  let elementB = new ConcreteElementB();
+  elementA.Accept(visitor1);
+  elementB.Accept(visitor2);
 }

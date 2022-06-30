@@ -19,7 +19,7 @@ class ApiGetAllRecord {
     return fetch(activeUrl, {
       method: 'GET',
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
         'x-access-token': user.token,
         //'Access-Control-Allow-Origin': '*'

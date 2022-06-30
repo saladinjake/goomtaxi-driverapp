@@ -1,7 +1,5 @@
 /*
-* Bootstrap Engine 
-*
-**/
+ * Bootstrap Engine
+ *
+ **/
 require('./libraries/Main');
-
- 

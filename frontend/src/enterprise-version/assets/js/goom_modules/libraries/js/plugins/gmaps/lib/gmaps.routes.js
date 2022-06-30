@@ -18,21 +18,24 @@ GMaps.prototype.getRoutes = function(options) {
 
   if (options.unitSystem === 'imperial') {
     unitSystem = google.maps.UnitSystem.IMPERIAL;
-  }
-  else {
+  } else {
     unitSystem = google.maps.UnitSystem.METRIC;
   }
 
   var base_options = {
-        avoidHighways: false,
-        avoidTolls: false,
-        optimizeWaypoints: false,
-        waypoints: []
-      },
-      request_options =  extend_object(base_options, options);
+      avoidHighways: false,
+      avoidTolls: false,
+      optimizeWaypoints: false,
+      waypoints: [],
+    },
+    request_options = extend_object(base_options, options);
 
-  request_options.origin = /string/.test(typeof options.origin) ? options.origin : new google.maps.LatLng(options.origin[0], options.origin[1]);
-  request_options.destination = /string/.test(typeof options.destination) ? options.destination : new google.maps.LatLng(options.destination[0], options.destination[1]);
+  request_options.origin = /string/.test(typeof options.origin)
+    ? options.origin
+    : new google.maps.LatLng(options.origin[0], options.origin[1]);
+  request_options.destination = /string/.test(typeof options.destination)
+    ? options.destination
+    : new google.maps.LatLng(options.destination[0], options.destination[1]);
   request_options.travelMode = travelMode;
   request_options.unitSystem = unitSystem;
 
@@ -40,7 +43,7 @@ GMaps.prototype.getRoutes = function(options) {
   delete request_options.error;
 
   var self = this,
-      service = new google.maps.DirectionsService();
+    service = new google.maps.DirectionsService();
 
   service.route(request_options, function(result, status) {
     if (status === google.maps.DirectionsStatus.OK) {
@@ -53,8 +56,7 @@ GMaps.prototype.getRoutes = function(options) {
       if (options.callback) {
         options.callback(self.routes);
       }
-    }
-    else {
+    } else {
       if (options.error) {
         options.error(result, status);
       }
@@ -67,15 +69,18 @@ GMaps.prototype.removeRoutes = function() {
 };
 
 GMaps.prototype.getElevations = function(options) {
-  options = extend_object({
-    locations: [],
-    path : false,
-    samples : 256
-  }, options);
+  options = extend_object(
+    {
+      locations: [],
+      path: false,
+      samples: 256,
+    },
+    options,
+  );
 
   if (options.locations.length > 0) {
     if (options.locations[0].length > 0) {
-      options.locations = array_flat(array_map([options.locations], arrayToLatLng,  false));
+      options.locations = array_flat(array_map([options.locations], arrayToLatLng, false));
     }
   }
 
@@ -90,19 +95,19 @@ GMaps.prototype.getElevations = function(options) {
     delete options.samples;
 
     service.getElevationForLocations(options, function(result, status) {
-      if (callback && typeof(callback) === "function") {
+      if (callback && typeof callback === 'function') {
         callback(result, status);
       }
     });
-  //path request
+    //path request
   } else {
     var pathRequest = {
-      path : options.locations,
-      samples : options.samples
+      path: options.locations,
+      samples: options.samples,
     };
 
     service.getElevationAlongPath(pathRequest, function(result, status) {
-     if (callback && typeof(callback) === "function") {
+      if (callback && typeof callback === 'function') {
         callback(result, status);
       }
     });
@@ -127,20 +132,20 @@ GMaps.prototype.drawRoute = function(options) {
           path: e[e.length - 1].overview_path,
           strokeColor: options.strokeColor,
           strokeOpacity: options.strokeOpacity,
-          strokeWeight: options.strokeWeight
+          strokeWeight: options.strokeWeight,
         };
 
-        if (options.hasOwnProperty("icons")) {
+        if (options.hasOwnProperty('icons')) {
           polyline_options.icons = options.icons;
         }
 
         self.drawPolyline(polyline_options);
-        
+
         if (options.callback) {
           options.callback(e[e.length - 1]);
         }
       }
-    }
+    },
   });
 };
 
@@ -150,7 +155,7 @@ GMaps.prototype.travelRoute = function(options) {
       origin: options.origin,
       destination: options.destination,
       travelMode: options.travelMode,
-      waypoints : options.waypoints,
+      waypoints: options.waypoints,
       unitSystem: options.unitSystem,
       error: options.error,
       callback: function(e) {
@@ -164,24 +169,23 @@ GMaps.prototype.travelRoute = function(options) {
           var route = e[e.length - 1];
           if (route.legs.length > 0) {
             var steps = route.legs[0].steps;
-            for (var i = 0, step; step = steps[i]; i++) {
+            for (var i = 0, step; (step = steps[i]); i++) {
               step.step_number = i;
-              options.step(step, (route.legs[0].steps.length - 1));
+              options.step(step, route.legs[0].steps.length - 1);
             }
           }
         }
 
         //end callback
         if (e.length > 0 && options.end) {
-           options.end(e[e.length - 1]);
+          options.end(e[e.length - 1]);
         }
-      }
+      },
     });
-  }
-  else if (options.route) {
+  } else if (options.route) {
     if (options.route.legs.length > 0) {
       var steps = options.route.legs[0].steps;
-      for (var i = 0, step; step = steps[i]; i++) {
+      for (var i = 0, step; (step = steps[i]); i++) {
         step.step_number = i;
         options.step(step);
       }
@@ -191,13 +195,13 @@ GMaps.prototype.travelRoute = function(options) {
 
 GMaps.prototype.drawSteppedRoute = function(options) {
   var self = this;
-  
+
   if (options.origin && options.destination) {
     this.getRoutes({
       origin: options.origin,
       destination: options.destination,
       travelMode: options.travelMode,
-      waypoints : options.waypoints,
+      waypoints: options.waypoints,
       error: options.error,
       callback: function(e) {
         //start callback
@@ -210,45 +214,44 @@ GMaps.prototype.drawSteppedRoute = function(options) {
           var route = e[e.length - 1];
           if (route.legs.length > 0) {
             var steps = route.legs[0].steps;
-            for (var i = 0, step; step = steps[i]; i++) {
+            for (var i = 0, step; (step = steps[i]); i++) {
               step.step_number = i;
               var polyline_options = {
                 path: step.path,
                 strokeColor: options.strokeColor,
                 strokeOpacity: options.strokeOpacity,
-                strokeWeight: options.strokeWeight
+                strokeWeight: options.strokeWeight,
               };
 
-              if (options.hasOwnProperty("icons")) {
+              if (options.hasOwnProperty('icons')) {
                 polyline_options.icons = options.icons;
               }
 
               self.drawPolyline(polyline_options);
-              options.step(step, (route.legs[0].steps.length - 1));
+              options.step(step, route.legs[0].steps.length - 1);
             }
           }
         }
 
         //end callback
         if (e.length > 0 && options.end) {
-           options.end(e[e.length - 1]);
+          options.end(e[e.length - 1]);
         }
-      }
+      },
     });
-  }
-  else if (options.route) {
+  } else if (options.route) {
     if (options.route.legs.length > 0) {
       var steps = options.route.legs[0].steps;
-      for (var i = 0, step; step = steps[i]; i++) {
+      for (var i = 0, step; (step = steps[i]); i++) {
         step.step_number = i;
         var polyline_options = {
           path: step.path,
           strokeColor: options.strokeColor,
           strokeOpacity: options.strokeOpacity,
-          strokeWeight: options.strokeWeight
+          strokeWeight: options.strokeWeight,
         };
 
-        if (options.hasOwnProperty("icons")) {
+        if (options.hasOwnProperty('icons')) {
           polyline_options.icons = options.icons;
         }
 
@@ -274,10 +277,10 @@ GMaps.Route = function(options) {
     path: new google.maps.MVCArray(),
     strokeColor: options.strokeColor,
     strokeOpacity: options.strokeOpacity,
-    strokeWeight: options.strokeWeight
+    strokeWeight: options.strokeWeight,
   };
 
-  if (options.hasOwnProperty("icons")) {
+  if (options.hasOwnProperty('icons')) {
     polyline_options.icons = options.icons;
   }
 
@@ -288,18 +291,18 @@ GMaps.Route.prototype.getRoute = function(options) {
   var self = this;
 
   this.map.getRoutes({
-    origin : this.origin,
-    destination : this.destination,
-    travelMode : options.travelMode,
-    waypoints : this.waypoints || [],
+    origin: this.origin,
+    destination: this.destination,
+    travelMode: options.travelMode,
+    waypoints: this.waypoints || [],
     error: options.error,
-    callback : function() {
+    callback: function() {
       self.route = e[0];
 
       if (options.callback) {
         options.callback.call(self);
       }
-    }
+    },
   });
 };
 
@@ -308,8 +311,8 @@ GMaps.Route.prototype.back = function() {
     this.step_count--;
     var path = this.route.legs[0].steps[this.step_count].path;
 
-    for (var p in path){
-      if (path.hasOwnProperty(p)){
+    for (var p in path) {
+      if (path.hasOwnProperty(p)) {
         this.polyline.pop();
       }
     }
@@ -320,8 +323,8 @@ GMaps.Route.prototype.forward = function() {
   if (this.step_count < this.steps_length) {
     var path = this.route.legs[0].steps[this.step_count].path;
 
-    for (var p in path){
-      if (path.hasOwnProperty(p)){
+    for (var p in path) {
+      if (path.hasOwnProperty(p)) {
         this.polyline.push(path[p]);
       }
     }

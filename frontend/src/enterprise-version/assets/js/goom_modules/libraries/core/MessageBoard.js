@@ -4,16 +4,15 @@ class MessageBoard {
     let msgBoard = document.getElementById('msg');
 
     setTimeout(() => {
-    msgBoard.style.opacity=1;
+      msgBoard.style.opacity = 1;
       msgBoard.innerHTML = msg;
-      msgBoard.style.display="block";
+      msgBoard.style.display = 'block';
     }, 2000);
-   
 
     setTimeout(() => {
-       msgBoard.innerHTML = '';
-    msgBoard.style.display="none";
-    msgBoard.style.opacity=0;
+      msgBoard.innerHTML = '';
+      msgBoard.style.display = 'none';
+      msgBoard.style.opacity = 0;
     }, 5000);
   }
 }

@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'pt-PT': {
       font: {
@@ -9,7 +9,7 @@
         height: 'Altura da linha',
         name: 'Fonte',
         strikethrough: 'Riscado',
-        size: 'Tamanho da fonte'
+        size: 'Tamanho da fonte',
       },
       image: {
         image: 'Imagem',
@@ -22,14 +22,14 @@
         floatNone: 'Sem Float',
         dragImageHere: 'Arraste uma imagem para aqui',
         selectFromFiles: 'Selecione a partir dos arquivos',
-        url: 'Endereço da imagem'
+        url: 'Endereço da imagem',
       },
       video: {
         video: 'Vídeo',
         videoLink: 'Link para vídeo',
         insert: 'Inserir vídeo',
         url: 'URL do vídeo?',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)',
       },
       link: {
         link: 'Link',
@@ -38,13 +38,13 @@
         edit: 'Editar',
         textToDisplay: 'Texto para exibir',
         url: 'Que endereço esta licação leva?',
-        openInNewWindow: 'Abrir numa nova janela'
+        openInNewWindow: 'Abrir numa nova janela',
       },
       table: {
-        table: 'Tabela'
+        table: 'Tabela',
       },
       hr: {
-        insert: 'Inserir linha horizontal'
+        insert: 'Inserir linha horizontal',
       },
       style: {
         style: 'Estilo',
@@ -56,16 +56,16 @@
         h3: 'Título 3',
         h4: 'Título 4',
         h5: 'Título 5',
-        h6: 'Título 6'
+        h6: 'Título 6',
       },
       lists: {
         unordered: 'Lista com marcadores',
-        ordered: 'Lista numerada'
+        ordered: 'Lista numerada',
       },
       options: {
         help: 'Ajuda',
         fullscreen: 'Janela Completa',
-        codeview: 'Ver código-fonte'
+        codeview: 'Ver código-fonte',
       },
       paragraph: {
         paragraph: 'Parágrafo',
@@ -74,7 +74,7 @@
         left: 'Alinhar à esquerda',
         center: 'Alinhar ao centro',
         right: 'Alinha à direita',
-        justify: 'Justificado'
+        justify: 'Justificado',
       },
       color: {
         recent: 'Cor recente',
@@ -84,7 +84,7 @@
         transparent: 'Transparente',
         setTransparent: 'Fundo transparente',
         reset: 'Restaurar',
-        resetToDefault: 'Restaurar padrão'
+        resetToDefault: 'Restaurar padrão',
       },
       shortcut: {
         shortcuts: 'Atalhos do teclado',
@@ -92,12 +92,12 @@
         textFormatting: 'Formatação de texto',
         action: 'Ação',
         paragraphFormatting: 'Formatação de parágrafo',
-        documentStyle: 'Estilo de documento'
+        documentStyle: 'Estilo de documento',
       },
       history: {
         undo: 'Desfazer',
-        redo: 'Refazer'
-      }
-    }
+        redo: 'Refazer',
+      },
+    },
   });
 })(jQuery);

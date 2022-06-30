@@ -1,12 +1,10 @@
 import ApiBotServices from '../../backend/services/postgres_api_bot';
-class PlanHistoryModel{
-	constructor(){
+class PlanHistoryModel {
+  constructor() {}
 
-	}
-
-	static planHistory(){
-	 return ApiBotServices.planHistory()
-	}
+  static planHistory() {
+    return ApiBotServices.planHistory();
+  }
 }
 
 export default PlanHistoryModel;

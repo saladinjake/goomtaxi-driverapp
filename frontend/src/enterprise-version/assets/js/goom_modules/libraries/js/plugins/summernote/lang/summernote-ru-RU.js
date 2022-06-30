@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'ru-RU': {
       font: {
@@ -11,7 +11,7 @@
         strikethrough: 'Зачёркнутый',
         subscript: 'Нижний индекс',
         superscript: 'Верхний индекс',
-        size: 'Размер шрифта'
+        size: 'Размер шрифта',
       },
       image: {
         image: 'Картинка',
@@ -30,14 +30,14 @@
         dropImage: 'Перетащите картинку',
         selectFromFiles: 'Выбрать из файлов',
         url: 'URL картинки',
-        remove: 'Удалить картинку'
+        remove: 'Удалить картинку',
       },
       video: {
         video: 'Видео',
         videoLink: 'Ссылка на видео',
         insert: 'Вставить видео',
         url: 'URL видео',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion или Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion или Youku)',
       },
       link: {
         link: 'Ссылка',
@@ -46,13 +46,13 @@
         edit: 'Редактировать',
         textToDisplay: 'Отображаемый текст',
         url: 'URL для перехода',
-        openInNewWindow: 'Открывать в новом окне'
+        openInNewWindow: 'Открывать в новом окне',
       },
       table: {
-        table: 'Таблица'
+        table: 'Таблица',
       },
       hr: {
-        insert: 'Вставить горизонтальную линию'
+        insert: 'Вставить горизонтальную линию',
       },
       style: {
         style: 'Стиль',
@@ -64,16 +64,16 @@
         h3: 'Заголовок 3',
         h4: 'Заголовок 4',
         h5: 'Заголовок 5',
-        h6: 'Заголовок 6'
+        h6: 'Заголовок 6',
       },
       lists: {
         unordered: 'Маркированный список',
-        ordered: 'Нумерованный список'
+        ordered: 'Нумерованный список',
       },
       options: {
         help: 'Помощь',
         fullscreen: 'На весь экран',
-        codeview: 'Исходный код'
+        codeview: 'Исходный код',
       },
       paragraph: {
         paragraph: 'Параграф',
@@ -82,7 +82,7 @@
         left: 'Выровнять по левому краю',
         center: 'Выровнять по центру',
         right: 'Выровнять по правому краю',
-        justify: 'Растянуть по ширине'
+        justify: 'Растянуть по ширине',
       },
       color: {
         recent: 'Последний цвет',
@@ -92,7 +92,7 @@
         transparent: 'Прозрачный',
         setTransparent: 'Сделать прозрачным',
         reset: 'Сброс',
-        resetToDefault: 'Восстановить умолчания'
+        resetToDefault: 'Восстановить умолчания',
       },
       shortcut: {
         shortcuts: 'Сочетания клавиш',
@@ -101,12 +101,12 @@
         action: 'Действие',
         paragraphFormatting: 'Форматирование параграфа',
         documentStyle: 'Стиль документа',
-        extraKeys: 'Дополнительные комбинации'
+        extraKeys: 'Дополнительные комбинации',
       },
       history: {
         undo: 'Отменить',
-        redo: 'Повтор'
-      }
-    }
+        redo: 'Повтор',
+      },
+    },
   });
 })(jQuery);

@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'ar-AR': {
       font: {
@@ -9,7 +9,7 @@
         height: 'إرتفاع السطر',
         name: 'الخط',
         strikethrough: 'فى وسطه خط',
-        size: 'الحجم'
+        size: 'الحجم',
       },
       image: {
         image: 'صورة',
@@ -23,14 +23,14 @@
         dragImageHere: 'إدرج الصورة هنا',
         selectFromFiles: 'حدد ملف',
         url: 'رابط الصورة',
-        remove: 'حذف الصورة'
+        remove: 'حذف الصورة',
       },
       video: {
         video: 'فيديو',
         videoLink: 'رابط الفيديو',
         insert: 'إدراج الفيديو',
         url: 'رابط الفيديو',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion ou Youku)',
       },
       link: {
         link: 'رابط رابط',
@@ -39,13 +39,13 @@
         edit: 'تعديل',
         textToDisplay: 'النص',
         url: 'مسار الرابط',
-        openInNewWindow: 'فتح في نافذة جديدة'
+        openInNewWindow: 'فتح في نافذة جديدة',
       },
       table: {
-        table: 'جدول'
+        table: 'جدول',
       },
       hr: {
-        insert: 'إدراج خط أفقي'
+        insert: 'إدراج خط أفقي',
       },
       style: {
         style: 'تنسيق',
@@ -57,16 +57,16 @@
         h3: 'عنوان رئيسي 3',
         h4: 'عنوان رئيسي 4',
         h5: 'عنوان رئيسي 5',
-        h6: 'عنوان رئيسي 6'
+        h6: 'عنوان رئيسي 6',
       },
       lists: {
         unordered: 'قائمة مُنقطة',
-        ordered: 'قائمة مُرقمة'
+        ordered: 'قائمة مُرقمة',
       },
       options: {
         help: 'مساعدة',
         fullscreen: 'حجم الشاشة بالكامل',
-        codeview: 'شفيرة المصدر'
+        codeview: 'شفيرة المصدر',
       },
       paragraph: {
         paragraph: 'فقرة',
@@ -75,7 +75,7 @@
         left: 'محاذاة لليسار',
         center: 'توسيط',
         right: 'محاذاة لليمين',
-        justify: 'ملئ السطر'
+        justify: 'ملئ السطر',
       },
       color: {
         recent: 'تم إستخدامه',
@@ -85,7 +85,7 @@
         transparent: 'شفاف',
         setTransparent: 'بدون خلفية',
         reset: 'إعادة الضبط',
-        resetToDefault: 'إعادة الضبط'
+        resetToDefault: 'إعادة الضبط',
       },
       shortcut: {
         shortcuts: 'إختصارات',
@@ -93,12 +93,12 @@
         textFormatting: 'تنسيق النص',
         action: 'Action',
         paragraphFormatting: 'تنسيق الفقرة',
-        documentStyle: 'تنسيق المستند'
+        documentStyle: 'تنسيق المستند',
       },
       history: {
         undo: 'تراجع',
-        redo: 'إعادة'
-      }
-    }
+        redo: 'إعادة',
+      },
+    },
   });
 })(jQuery);

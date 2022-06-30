@@ -4,7 +4,7 @@ GMaps.prototype.getFromFusionTables = function(options) {
   delete options.events;
 
   var fusion_tables_options = options,
-      layer = new google.maps.FusionTablesLayer(fusion_tables_options);
+    layer = new google.maps.FusionTablesLayer(fusion_tables_options);
 
   for (var ev in events) {
     (function(object, name) {
@@ -28,13 +28,13 @@ GMaps.prototype.loadFromFusionTables = function(options) {
 
 GMaps.prototype.getFromKML = function(options) {
   var url = options.url,
-      events = options.events;
+    events = options.events;
 
   delete options.url;
   delete options.events;
 
   var kml_options = options,
-      layer = new google.maps.KmlLayer(url, kml_options);
+    layer = new google.maps.KmlLayer(url, kml_options);
 
   for (var ev in events) {
     (function(object, name) {
@@ -61,69 +61,74 @@ GMaps.prototype.addLayer = function(layerName, options) {
   options = options || {};
   var layer;
 
-  switch(layerName) {
-    case 'weather': this.singleLayers.weather = layer = new google.maps.weather.WeatherLayer();
+  switch (layerName) {
+    case 'weather':
+      this.singleLayers.weather = layer = new google.maps.weather.WeatherLayer();
       break;
-    case 'clouds': this.singleLayers.clouds = layer = new google.maps.weather.CloudLayer();
+    case 'clouds':
+      this.singleLayers.clouds = layer = new google.maps.weather.CloudLayer();
       break;
-    case 'traffic': this.singleLayers.traffic = layer = new google.maps.TrafficLayer();
+    case 'traffic':
+      this.singleLayers.traffic = layer = new google.maps.TrafficLayer();
       break;
-    case 'transit': this.singleLayers.transit = layer = new google.maps.TransitLayer();
+    case 'transit':
+      this.singleLayers.transit = layer = new google.maps.TransitLayer();
       break;
-    case 'bicycling': this.singleLayers.bicycling = layer = new google.maps.BicyclingLayer();
+    case 'bicycling':
+      this.singleLayers.bicycling = layer = new google.maps.BicyclingLayer();
       break;
     case 'panoramio':
-        this.singleLayers.panoramio = layer = new google.maps.panoramio.PanoramioLayer();
-        layer.setTag(options.filter);
-        delete options.filter;
+      this.singleLayers.panoramio = layer = new google.maps.panoramio.PanoramioLayer();
+      layer.setTag(options.filter);
+      delete options.filter;
 
-        //click event
-        if (options.click) {
-          google.maps.event.addListener(layer, 'click', function(event) {
-            options.click(event);
-            delete options.click;
-          });
-        }
+      //click event
+      if (options.click) {
+        google.maps.event.addListener(layer, 'click', function(event) {
+          options.click(event);
+          delete options.click;
+        });
+      }
       break;
-      case 'places':
-        this.singleLayers.places = layer = new google.maps.places.PlacesService(this.map);
+    case 'places':
+      this.singleLayers.places = layer = new google.maps.places.PlacesService(this.map);
 
-        //search, nearbySearch, radarSearch callback, Both are the same
-        if (options.search || options.nearbySearch || options.radarSearch) {
-          var placeSearchRequest  = {
-            bounds : options.bounds || null,
-            keyword : options.keyword || null,
-            location : options.location || null,
-            name : options.name || null,
-            radius : options.radius || null,
-            rankBy : options.rankBy || null,
-            types : options.types || null
-          };
+      //search, nearbySearch, radarSearch callback, Both are the same
+      if (options.search || options.nearbySearch || options.radarSearch) {
+        var placeSearchRequest = {
+          bounds: options.bounds || null,
+          keyword: options.keyword || null,
+          location: options.location || null,
+          name: options.name || null,
+          radius: options.radius || null,
+          rankBy: options.rankBy || null,
+          types: options.types || null,
+        };
 
-          if (options.radarSearch) {
-            layer.radarSearch(placeSearchRequest, options.radarSearch);
-          }
-
-          if (options.search) {
-            layer.search(placeSearchRequest, options.search);
-          }
-
-          if (options.nearbySearch) {
-            layer.nearbySearch(placeSearchRequest, options.nearbySearch);
-          }
+        if (options.radarSearch) {
+          layer.radarSearch(placeSearchRequest, options.radarSearch);
         }
 
-        //textSearch callback
-        if (options.textSearch) {
-          var textSearchRequest  = {
-            bounds : options.bounds || null,
-            location : options.location || null,
-            query : options.query || null,
-            radius : options.radius || null
-          };
-
-          layer.textSearch(textSearchRequest, options.textSearch);
+        if (options.search) {
+          layer.search(placeSearchRequest, options.search);
         }
+
+        if (options.nearbySearch) {
+          layer.nearbySearch(placeSearchRequest, options.nearbySearch);
+        }
+      }
+
+      //textSearch callback
+      if (options.textSearch) {
+        var textSearchRequest = {
+          bounds: options.bounds || null,
+          location: options.location || null,
+          query: options.query || null,
+          radius: options.radius || null,
+        };
+
+        layer.textSearch(textSearchRequest, options.textSearch);
+      }
       break;
   }
 
@@ -140,12 +145,11 @@ GMaps.prototype.addLayer = function(layerName, options) {
 };
 
 GMaps.prototype.removeLayer = function(layer) {
-  if (typeof(layer) == "string" && this.singleLayers[layer] !== undefined) {
-     this.singleLayers[layer].setMap(null);
+  if (typeof layer == 'string' && this.singleLayers[layer] !== undefined) {
+    this.singleLayers[layer].setMap(null);
 
-     delete this.singleLayers[layer];
-  }
-  else {
+    delete this.singleLayers[layer];
+  } else {
     for (var i = 0; i < this.layers.length; i++) {
       if (this.layers[i] === layer) {
         this.layers[i].setMap(null);

@@ -1,13 +1,12 @@
-
 var LoadMore = function(userOptions) {
   this.options = {
-    "pageSize": 10,
-    "dataUrl": "",
-    "container": "#loadbase",
-    "triggerText": "Show More",
-    "triggerLoadingText": "...loading",
-    "trigger": "#showMoreTrigger",
-    "callback": null
+    pageSize: 10,
+    dataUrl: '',
+    container: '#loadbase',
+    triggerText: 'Show More',
+    triggerLoadingText: '...loading',
+    trigger: '#showMoreTrigger',
+    callback: null,
   };
   $.extend(this.options, userOptions);
   this._index = 0;
@@ -15,8 +14,8 @@ var LoadMore = function(userOptions) {
 };
 
 LoadMore.prototype.scrollToElement = function(selector, time, verticalOffset) {
-  time = typeof(time) != 'undefined' ? time : 1000;
-  verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+  time = typeof time != 'undefined' ? time : 1000;
+  verticalOffset = typeof verticalOffset != 'undefined' ? verticalOffset : 0;
   var element = $(selector);
   var offset = element.offset();
   var offsetTop = offset.top + verticalOffset;
@@ -30,26 +29,29 @@ LoadMore.prototype.scrollToElement = function(selector, time, verticalOffset) {
     duration: 1500
   });*/
 
-  $('html,body').animate({
-      scrollTop: offsetTop
-  }, 800, function(){
+  $('html,body').animate(
+    {
+      scrollTop: offsetTop,
+    },
+    800,
+    function() {
       $('html,body').clearQueue();
-  });
+    },
+  );
   //}
 };
 
 LoadMore.prototype.loadData = function(gottenData) {
   var self = this;
   self.triggerFeedback(true);
-  $.getJSON(self.options.dataUrl,
-    function(data) {
-      self.triggerFeedback(false);
-      var totalResults =  gottenData.length  //data.results.length;
-      var items = [];
-      var dataArr = gottenData.splice(self._index, self.options.pageSize); // data.results.splice(self._index, self.options.pageSize);
-      if (dataArr.length > 0) {
-        $.each(dataArr, function(key, item) {
-          items.push(`<li  className="row  loadmore  card">
+  $.getJSON(self.options.dataUrl, function(data) {
+    self.triggerFeedback(false);
+    var totalResults = gottenData.length; //data.results.length;
+    var items = [];
+    var dataArr = gottenData.splice(self._index, self.options.pageSize); // data.results.splice(self._index, self.options.pageSize);
+    if (dataArr.length > 0) {
+      $.each(dataArr, function(key, item) {
+        items.push(`<li  className="row  loadmore  card">
           
           <div className="activity-content col-xs-10  ">
             <div className="inner">
@@ -67,24 +69,24 @@ LoadMore.prototype.loadData = function(gottenData) {
           </div>
           <hr/>
         </li>`);
-        });
-        $(items.join("")).appendTo(self.options.container);
-        var scrollToEl = $(".result").get(self._index);
-        self._index += self.options.pageSize;
-        if (scrollToEl) {
-          // occurs only when not the initial
-          // load of data
-          self.scrollToElement(scrollToEl);
-        }
-        self._itemsCurrentlyDisplayed += dataArr.length;
-        if (self._itemsCurrentlyDisplayed >= totalResults) {
-          self._trigger.hide();
-        }
-        if (self.options.callback != null) {
-          self.options.callback();
-        }
+      });
+      $(items.join('')).appendTo(self.options.container);
+      var scrollToEl = $('.result').get(self._index);
+      self._index += self.options.pageSize;
+      if (scrollToEl) {
+        // occurs only when not the initial
+        // load of data
+        self.scrollToElement(scrollToEl);
       }
-    });
+      self._itemsCurrentlyDisplayed += dataArr.length;
+      if (self._itemsCurrentlyDisplayed >= totalResults) {
+        self._trigger.hide();
+      }
+      if (self.options.callback != null) {
+        self.options.callback();
+      }
+    }
+  });
 };
 
 LoadMore.prototype.triggerFeedback = function(isLoading) {
@@ -97,16 +99,13 @@ LoadMore.prototype.triggerFeedback = function(isLoading) {
 
 LoadMore.prototype.init = function(dataFromFetch) {
   var self = this;
-  $(document).ready(
-    function() {
-      self._trigger = $(self.options.trigger);
+  $(document).ready(function() {
+    self._trigger = $(self.options.trigger);
+    self.loadData(dataFromFetch);
+    self._trigger.on('click', function() {
       self.loadData(dataFromFetch);
-      self._trigger.on("click", function() {
-        self.loadData(dataFromFetch);
-      });
     });
+  });
 };
 
-
- 
 export default LoadMore;

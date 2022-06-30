@@ -25,22 +25,17 @@ requirejs( [ '../masonry' ], function( Masonry ) {
 // /*
 requirejs.config({
   paths: {
-    jquery: '../../bower_components/jquery/dist/jquery'
-  }
+    jquery: '../../bower_components/jquery/dist/jquery',
+  },
 });
 
-requirejs( [ 'require', 'jquery', '../../dist/masonry.pkgd' ],
-  function( require, $, Masonry ) {
-    require( [
-      'jquery-bridget/jquery.bridget'
-    ],
-    function() {
-      $.bridget( 'masonry', Masonry );
-      $('#basic').masonry({
-        columnWidth: 60
-      });
-    }
-  );
+requirejs(['require', 'jquery', '../../dist/masonry.pkgd'], function(require, $, Masonry) {
+  require(['jquery-bridget/jquery.bridget'], function() {
+    $.bridget('masonry', Masonry);
+    $('#basic').masonry({
+      columnWidth: 60,
+    });
+  });
 });
 // */
 

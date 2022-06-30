@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'uk-UA': {
       font: {
@@ -11,7 +11,7 @@
         strikethrough: 'Закреслений',
         subscript: 'Нижній індекс',
         superscript: 'Верхній індекс',
-        size: 'Розмір шрифту'
+        size: 'Розмір шрифту',
       },
       image: {
         image: 'Картинка',
@@ -30,14 +30,14 @@
         dropImage: 'Перетягніть картинку',
         selectFromFiles: 'Вибрати з файлів',
         url: 'URL картинки',
-        remove: 'Видалити картинку'
+        remove: 'Видалити картинку',
       },
       video: {
         video: 'Відео',
         videoLink: 'Посилання на відео',
         insert: 'Вставити відео',
         url: 'URL відео',
-        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion чи Youku)'
+        providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion чи Youku)',
       },
       link: {
         link: 'Посилання',
@@ -46,13 +46,13 @@
         edit: 'Редагувати',
         textToDisplay: 'Текст, що відображається',
         url: 'URL для переходу',
-        openInNewWindow: 'Відкривати у новому вікні'
+        openInNewWindow: 'Відкривати у новому вікні',
       },
       table: {
-        table: 'Таблиця'
+        table: 'Таблиця',
       },
       hr: {
-        insert: 'Вставити горизонтальну лінію'
+        insert: 'Вставити горизонтальну лінію',
       },
       style: {
         style: 'Стиль',
@@ -64,16 +64,16 @@
         h3: 'Заголовок 3',
         h4: 'Заголовок 4',
         h5: 'Заголовок 5',
-        h6: 'Заголовок 6'
+        h6: 'Заголовок 6',
       },
       lists: {
         unordered: 'Маркований список',
-        ordered: 'Нумерований список'
+        ordered: 'Нумерований список',
       },
       options: {
         help: 'Допомога',
         fullscreen: 'На весь екран',
-        codeview: 'Початковий код'
+        codeview: 'Початковий код',
       },
       paragraph: {
         paragraph: 'Параграф',
@@ -82,7 +82,7 @@
         left: 'Вирівняти по лівому краю',
         center: 'Вирівняти по центру',
         right: 'Вирівняти по правому краю',
-        justify: 'Розтягнути по ширині'
+        justify: 'Розтягнути по ширині',
       },
       color: {
         recent: 'Останній колір',
@@ -92,7 +92,7 @@
         transparent: 'Прозорий',
         setTransparent: 'Зробити прозорим',
         reset: 'Відновити',
-        resetToDefault: 'Відновити початкові'
+        resetToDefault: 'Відновити початкові',
       },
       shortcut: {
         shortcuts: 'Комбінації клавіш',
@@ -100,12 +100,12 @@
         textFormatting: 'Форматування тексту',
         action: 'Дія',
         paragraphFormatting: 'Форматування параграфу',
-        documentStyle: 'Стиль документу'
+        documentStyle: 'Стиль документу',
       },
       history: {
         undo: 'Відмінити',
-        redo: 'Повторити'
-      }
-    }
+        redo: 'Повторити',
+      },
+    },
   });
 })(jQuery);

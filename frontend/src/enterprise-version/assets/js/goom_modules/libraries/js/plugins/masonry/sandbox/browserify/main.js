@@ -2,8 +2,8 @@
 
 var Masonry = require('../../masonry');
 
-new Masonry( '#basic', {
-  columnWidth: 60
+new Masonry('#basic', {
+  columnWidth: 60,
 });
 
 // jquery

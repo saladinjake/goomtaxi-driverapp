@@ -5,7 +5,5 @@ class FaqsModel {
   static getAllFaqs() {
     return ApiBotServices.getAllFaqs();
   }
-
-  
 }
 export default FaqsModel;

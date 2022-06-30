@@ -1,55 +1,53 @@
 'use strict';
 
 class Contextt {
-    constructor(state) {
-        switch(state) {
-            case "A":
-                this.state = new ConcreteStateA()
-                break
-            case "B":
-                this.state = new ConcreteStateB()
-                break
-            default:
-                this.state = new ConcreteStateA()
-        }
+  constructor(state) {
+    switch (state) {
+      case 'A':
+        this.state = new ConcreteStateA();
+        break;
+      case 'B':
+        this.state = new ConcreteStateB();
+        break;
+      default:
+        this.state = new ConcreteStateA();
     }
+  }
 
-    Request (){
-        this.state.Handle(this);
-    }
+  Request() {
+    this.state.Handle(this);
+  }
 }
 
 class State {
-    constructor() {
-    }
+  constructor() {}
 
-    Handle (){
-    }
+  Handle() {}
 }
 
 class ConcreteStateA extends State {
-    constructor() {
-        super()
-        facade.log('ConcreteStateA created')
-    }
+  constructor() {
+    super();
+    facade.log('ConcreteStateA created');
+  }
 
-    Handle (context){
-        facade.log('ConcreteStateA handle')
-    }
+  Handle(context) {
+    facade.log('ConcreteStateA handle');
+  }
 }
 
 class ConcreteStateB extends State {
-    constructor() {
-        super()
-        facade.log('ConcreteStateB created')
-    }
+  constructor() {
+    super();
+    facade.log('ConcreteStateB created');
+  }
 
-    Handle (context){
-        facade.log('ConcreteStateB handle')
-    }
+  Handle(context) {
+    facade.log('ConcreteStateB handle');
+  }
 }
 
 function init_State() {
-    let context = new Contextt("A")
-    context.Request()
+  let context = new Contextt('A');
+  context.Request();
 }

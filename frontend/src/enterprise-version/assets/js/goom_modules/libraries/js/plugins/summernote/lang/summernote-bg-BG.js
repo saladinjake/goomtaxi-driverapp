@@ -1,4 +1,4 @@
-(function ($) {
+(function($) {
   $.extend($.summernote.lang, {
     'bg-BG': {
       font: {
@@ -11,7 +11,7 @@
         strikethrough: 'Задраскано',
         subscript: 'Долен индекс',
         superscript: 'Горен индекс',
-        size: 'Размер на шрифта'
+        size: 'Размер на шрифта',
       },
       image: {
         image: 'Изображение',
@@ -25,7 +25,7 @@
         dragImageHere: 'Пуснете изображението тук',
         selectFromFiles: 'Изберете файл',
         url: 'URL адрес на изображение',
-        remove: 'Премахни изображение'
+        remove: 'Премахни изображение',
       },
       link: {
         link: 'Връзка',
@@ -34,13 +34,13 @@
         edit: 'Промени',
         textToDisplay: 'Текст за показване',
         url: 'URL адрес',
-        openInNewWindow: 'Отвори в нов прозорец'
+        openInNewWindow: 'Отвори в нов прозорец',
       },
       table: {
-        table: 'Таблица'
+        table: 'Таблица',
       },
       hr: {
-        insert: 'Добави хоризонтална линия'
+        insert: 'Добави хоризонтална линия',
       },
       style: {
         style: 'Стил',
@@ -52,16 +52,16 @@
         h3: 'Заглавие 3',
         h4: 'Заглавие 4',
         h5: 'Заглавие 5',
-        h6: 'Заглавие 6'
+        h6: 'Заглавие 6',
       },
       lists: {
         unordered: 'Символен списък',
-        ordered: 'Цифров списък'
+        ordered: 'Цифров списък',
       },
       options: {
         help: 'Помощ',
         fullscreen: 'На цял екран',
-        codeview: 'Преглед на код'
+        codeview: 'Преглед на код',
       },
       paragraph: {
         paragraph: 'Параграф',
@@ -70,7 +70,7 @@
         left: 'Подравняване в ляво',
         center: 'Център',
         right: 'Подравняване в дясно',
-        justify: 'Разтягане по ширина'
+        justify: 'Разтягане по ширина',
       },
       color: {
         recent: 'Последния избран цвят',
@@ -80,7 +80,7 @@
         transparent: 'Прозрачен',
         setTransparent: 'Направете прозрачен',
         reset: 'Възстанови',
-        resetToDefault: 'Възстанови оригиналните'
+        resetToDefault: 'Възстанови оригиналните',
       },
       shortcut: {
         shortcuts: 'Клавишни комбинации',
@@ -88,12 +88,12 @@
         textFormatting: 'Форматиране на текста',
         action: 'Действие',
         paragraphFormatting: 'Форматиране на параграф',
-        documentStyle: 'Стил на документа'
+        documentStyle: 'Стил на документа',
       },
       history: {
         undo: 'Назад',
-        redo: 'Напред'
-      }
-    }
+        redo: 'Напред',
+      },
+    },
   });
 })(jQuery);

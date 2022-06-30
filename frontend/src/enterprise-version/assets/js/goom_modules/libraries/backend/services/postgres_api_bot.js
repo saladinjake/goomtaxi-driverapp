@@ -13,53 +13,48 @@ import ApiPlanHistory from './apiservices/ApiPlanHistory';
 import ApiFaqs from './apiservices/ApiGetAllFaqs';
 import ApiUsersSOS from './apiservices/ApiUsersSOS';
 import ApiWallet from './apiservices/ApiWallet';
-import ApiQuotation from "./apiservices/ApiQuotation";
-import ApiPayments from "./apiservices/ApiPayments";
+import ApiQuotation from './apiservices/ApiQuotation';
+import ApiPayments from './apiservices/ApiPayments';
 import ApiMech from './apiservices/ApiMech';
-import  ApiAllPlansCategory from './apiservices/ApiAllPlansCategory';
-
+import ApiAllPlansCategory from './apiservices/ApiAllPlansCategory';
 
 /**perform update per routes*/
-import ApiAdminBotService from "./adminservices/postgres_api_admin_bot";
+import ApiAdminBotService from './adminservices/postgres_api_admin_bot';
 import ApiUpdateOneRecord from './apiservices/ApiUpdateOneRecord'; //code script powered up update
 import ApiEditOneCommentRecord from './apiservices/ApiEditOneCommentRecord';
 import ApiUpdateStatusRecord from './apiservices/ApiUpdateStatusRecord';
 import ApiGetBothRecord from './apiservices/ApiGetBothRecord'; //for admin
 import ApiAllUsersRecords from './apiservices/ApiAllUsersRecords';
 
-
-
 import ApiDriversTasks from './apiservices/ApiDriversTasks';
 
-
-var cache = {}
-function onlyAllowOneCall(fn){
-     var hasBeenCalled = false;    
-     return function(){
-          if (hasBeenCalled){
-               throw Error("Attempted to call callback twice")
-          }
-          hasBeenCalled = true;
-          return fn.apply(this, arguments)
-     }
+var cache = {};
+function onlyAllowOneCall(fn) {
+  var hasBeenCalled = false;
+  return function() {
+    if (hasBeenCalled) {
+      throw Error('Attempted to call callback twice');
+    }
+    hasBeenCalled = true;
+    return fn.apply(this, arguments);
+  };
 }
-
 
 class ApiBotService {
   constructor() {}
 
-  static getAssignedCarsAndTrips(){
-    return ApiDriversTasks.getAssignedCarsAndTrips()
+  static getAssignedCarsAndTrips() {
+    return ApiDriversTasks.getAssignedCarsAndTrips();
   }
-  static dashboard(){
+  static dashboard() {
     return ApiDashboard();
   }
 
-  static itineraryHistory(){
+  static itineraryHistory() {
     return ApiItineraryHistory();
   }
 
-  static planHistory(){
+  static planHistory() {
     return ApiPlanHistory();
   }
   static authenticateUser() {
@@ -67,18 +62,18 @@ class ApiBotService {
   }
 
   static passwordReset() {
-    return  ApiLoginService.passwordReset();
+    return ApiLoginService.passwordReset();
   }
 
   static authorizeUser() {
     return ApiSignUpService.authorize();
   }
 
-  static fetchUserProfile(){
+  static fetchUserProfile() {
     return ApiProfile.fetchUserProfile();
   }
 
-  static updateProfile(){
+  static updateProfile() {
     return ApiProfile.updateProfile();
   }
 
@@ -90,32 +85,17 @@ class ApiBotService {
     return ApiAllPlansCategory.getData(url);
   }
 
-   static deleteItem(record){
+  static deleteItem(record) {
     return ApiAllPlansCategory.deleteItem(record);
   }
 
-   static updateItem(record){
+  static updateItem(record) {
     return ApiAllPlansCategory.updateItem(record);
   }
 
-
-  static getOnePlanById(){
+  static getOnePlanById() {
     return ApiAllPlansCategory.getOnePlanById();
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
   static fetchDataInterventions(url = '/interventions') {
     return ApiGetAllRecord.getData(url);
@@ -125,35 +105,31 @@ class ApiBotService {
     return ApiGetAllRecord.getData(url);
   }
 
-  static getAllUsersSOS(){
-    return ApiUsersSOS.getDataById()
+  static getAllUsersSOS() {
+    return ApiUsersSOS.getDataById();
   }
 
-  static getAllFaqs(){
+  static getAllFaqs() {
     return ApiFaqs.getAllFaqs();
   }
 
-  static getUsersRepairs(){
-    return ApiMech.getUsersRepairs()
+  static getUsersRepairs() {
+    return ApiMech.getUsersRepairs();
   }
 
-  static saveRepairs(){
-    return ApiMech.saveRepairs()
+  static saveRepairs() {
+    return ApiMech.saveRepairs();
   }
 
-
-  static saveSOSRequest(user){
-    console.log('calling')
-    return ApiSOSRequest.saveSOSRequest(user)
+  static saveSOSRequest(user) {
+    console.log('calling');
+    return ApiSOSRequest.saveSOSRequest(user);
   }
-
-
 
   static updateOneRecord(record) {
     return ApiUpdateOneRecord.updateOneRecord(record);
   }
 
-  
   static getById() {
     return ApiGetOneRecord.getDataById();
   }
@@ -165,7 +141,7 @@ class ApiBotService {
   static deleteOneRecord() {
     return ApiDeleteOneStatusRecord.deleteDataById();
   }
-  
+
   static updateOneComment() {
     return ApiEditOneCommentRecord.editOneCommentById();
   }
@@ -177,22 +153,19 @@ class ApiBotService {
     return ApiGetBothRecord.getData();
   }
 
-  static getUsersTrnx(){
+  static getUsersTrnx() {
     return ApiWallet.getUsersTrnx();
   }
 
-  static getUsersQuotationTrnx(){
-    return ApiQuotation.getUsersQuotationTrnx()
+  static getUsersQuotationTrnx() {
+    return ApiQuotation.getUsersQuotationTrnx();
   }
 
-  static getUsersPaymentTrnx(){
+  static getUsersPaymentTrnx() {
     return ApiPayments.getUsersPaymentTrnx();
   }
 
-
-
-
-  static getCurrentUsersPosts(){
+  static getCurrentUsersPosts() {
     return ApiAllUsersRecords.getData();
   }
 
@@ -200,14 +173,9 @@ class ApiBotService {
     return Math.floor(Math.random() * 9000 + 2000);
   }
 
-
-
-
-
-
   //ADMIN
 
-  static runAllGetRecords(){
+  static runAllGetRecords() {
     return ApiAdminBotService.runAllGetRecords();
   }
 }
