@@ -19,7 +19,7 @@ import ApiMech from './apiservices/ApiMech';
 import ApiAllPlansCategory from './apiservices/ApiAllPlansCategory';
 
 /**perform update per routes*/
-import ApiAdminBotService from './adminservices/postgres_api_admin_bot';
+
 import ApiUpdateOneRecord from './apiservices/ApiUpdateOneRecord'; //code script powered up update
 import ApiEditOneCommentRecord from './apiservices/ApiEditOneCommentRecord';
 import ApiUpdateStatusRecord from './apiservices/ApiUpdateStatusRecord';

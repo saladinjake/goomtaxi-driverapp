@@ -12,9 +12,66 @@ import $ from 'jquery';
 
 import GoomTaxiServiceRoutes from './enterprise-version/core/routes/index';
 
+const loadingAction = () => {
+  document.onreadystatechange = function(e) {
+    e.preventDefault();
+    if (document.readyState !== 'complete') {
+    } else {
+      //if (!document.getElementById('admin')) {
+        new FrontEndApp().run();
+      //} else {
+       // new BackendApp().run();
+      //}
+    }
+  };
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount(){
+
+    let frontRunner, backRunner;
+
+    document.addEventListener('load', () => {
+      $('#loader').animate(
+        {
+          top: -3500,
+        },
+        2500,
+      );
+      setTimeout(() => {
+        document.querySelector('#gtd').style.visibility = 'hidden';
+        document.querySelector('#gtd').style.opacity = 0;
+        document.querySelector('#loader').style.visibility = 'visible';
+      }, 2000);
+    });
+
+    $(document).ready(function() {
+      if (!document.getElementById('admin')) {
+        setTimeout(() => {
+          $('#loader').animate({ top: -3500 }, 2500);
+        }, 3400);
+
+        document.querySelector('#gtd').style.visibility = 'visible';
+        document.querySelector('#gtd').style.opacity = 1;
+
+        setTimeout(
+          () => {
+            document.querySelector('#gtd').style.visibility = 'visible';
+            document.querySelector('#gtd').style.opacity = 1;
+          },
+
+          3500,
+        );
+      } else {
+      }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      loadingAction();
+    });
   }
 
   render() {
@@ -28,59 +85,8 @@ class App extends React.Component {
   }
 }
 
-let frontRunner, backRunner;
-const loadingAction = () => {
-  document.onreadystatechange = function(e) {
-    e.preventDefault();
-    if (document.readyState !== 'complete') {
-    } else {
-      if (!document.getElementById('admin')) {
-        new FrontEndApp().run();
-      } else {
-        new BackendApp().run();
-      }
-    }
-  };
-};
 
-document.addEventListener('load', () => {
-  $('#loader').animate(
-    {
-      top: -3500,
-    },
-    2500,
-  );
-
-  setTimeout(() => {
-    document.querySelector('#gtd').style.visibility = 'hidden';
-    document.querySelector('#gtd').style.opacity = 0;
-    document.querySelector('#loader').style.visibility = 'visible';
-  }, 2000);
-});
-
-$(document).ready(function() {
-  if (!document.getElementById('admin')) {
-    setTimeout(() => {
-      $('#loader').animate({ top: -3500 }, 2500);
-    }, 3400);
-
-    document.querySelector('#gtd').style.visibility = 'visible';
-    document.querySelector('#gtd').style.opacity = 1;
-
-    setTimeout(
-      () => {
-        document.querySelector('#gtd').style.visibility = 'visible';
-        document.querySelector('#gtd').style.opacity = 1;
-      },
-
-      3500,
-    );
-  } else {
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadingAction();
-});
 
 export default App;
+
+

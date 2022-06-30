@@ -15,7 +15,7 @@ let detinationMarker;
 let startMarker;
 
 import socketIOClient from 'socket.io-client';
-const ENDPOINT = 'https://goomtaxibackendapi';
+const ENDPOINT = 'https://goomtaxibackendapi.herokuapp.com';
 
 var element;
 var myStorage = localStorage;
