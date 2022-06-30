@@ -4,10 +4,8 @@ import React from 'react';
 import './404.scss';
 
 const notFound = () => (
-
-<React.Fragment>
-
-{/*
+  <React.Fragment>
+    {/*
  <svg height="80" width="200" className="Content-item">
     <defs>
     <clipPath id="eye-iris-clip">
@@ -48,17 +46,18 @@ const notFound = () => (
   <polygon points="75,180 69,210 81,210" fill="#cc8200"/>
   </svg>*/}
 
-
-  <div className="Content">
-  
-  <div className="Content-item">
-    <span className="title" style={{color:"#7e57c2"}}>Uh Oh!</span>
-    <br/>
-    <span className="desc" style={{color:"#7e57c2"}}>It looks like the resource has gone for a stroll.</span>
-  </div>
-</div>
-
-</React.Fragment>
+    <div className="Content">
+      <div className="Content-item">
+        <span className="title" style={{ color: '#7e57c2' }}>
+          Uh Oh!
+        </span>
+        <br />
+        <span className="desc" style={{ color: '#7e57c2' }}>
+          It looks like the resource has gone for a stroll.
+        </span>
+      </div>
+    </div>
+  </React.Fragment>
 );
 
 export default notFound;
