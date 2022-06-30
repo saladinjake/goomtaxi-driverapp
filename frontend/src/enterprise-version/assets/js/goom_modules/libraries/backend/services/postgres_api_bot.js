@@ -9,14 +9,11 @@ import ApiDeleteOneStatusRecord from './apiservices/ApiDeleteOneStatusRecord';
 import ApiProfile from './apiservices/ApiUserProfile';
 import ApiDashboard from './apiservices/ApiDashboard';
 import ApiItineraryHistory from './apiservices/ApiItineraryHistory';
-import ApiPlanHistory from './apiservices/ApiPlanHistory';
 import ApiFaqs from './apiservices/ApiGetAllFaqs';
 import ApiUsersSOS from './apiservices/ApiUsersSOS';
 import ApiWallet from './apiservices/ApiWallet';
-import ApiQuotation from './apiservices/ApiQuotation';
 import ApiPayments from './apiservices/ApiPayments';
 import ApiMech from './apiservices/ApiMech';
-import ApiAllPlansCategory from './apiservices/ApiAllPlansCategory';
 
 /**perform update per routes*/
 
@@ -54,9 +51,6 @@ class ApiBotService {
     return ApiItineraryHistory();
   }
 
-  static planHistory() {
-    return ApiPlanHistory();
-  }
   static authenticateUser() {
     return ApiLoginService.validate();
   }
@@ -77,25 +71,10 @@ class ApiBotService {
     return ApiProfile.updateProfile();
   }
 
-  static fetchDataIndividualPlans(url = '/individual/plans/view') {
-    return ApiAllPlansCategory.getData(url);
-  }
 
-  static fetchDataCoperatePlans(url = '/coperate/plans/view') {
-    return ApiAllPlansCategory.getData(url);
-  }
 
-  static deleteItem(record) {
-    return ApiAllPlansCategory.deleteItem(record);
-  }
 
-  static updateItem(record) {
-    return ApiAllPlansCategory.updateItem(record);
-  }
 
-  static getOnePlanById() {
-    return ApiAllPlansCategory.getOnePlanById();
-  }
 
   static fetchDataInterventions(url = '/interventions') {
     return ApiGetAllRecord.getData(url);
@@ -157,9 +136,6 @@ class ApiBotService {
     return ApiWallet.getUsersTrnx();
   }
 
-  static getUsersQuotationTrnx() {
-    return ApiQuotation.getUsersQuotationTrnx();
-  }
 
   static getUsersPaymentTrnx() {
     return ApiPayments.getUsersPaymentTrnx();
@@ -173,11 +149,6 @@ class ApiBotService {
     return Math.floor(Math.random() * 9000 + 2000);
   }
 
-  //ADMIN
-
-  static runAllGetRecords() {
-    return ApiAdminBotService.runAllGetRecords();
-  }
 }
 
 export default ApiBotService;
